@@ -1,6 +1,9 @@
+require('dotenv').config();
+
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
-require('dotenv').config();
+const schema = require('./schema');
+
 
 const app = express();
 const PORT = process.env.PORT || 4000;
