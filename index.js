@@ -1,3 +1,4 @@
+const { Neo4jGraphQL } = require("@neo4j/graphql");
 const { ApolloServer } = require('apollo-server');
 // const { OGM } = require("@neo4j/graphql-ogm");
 
@@ -7,26 +8,26 @@ require('dotenv').config();
 
 const { driver } = require('./config.js');
 
-const typeDefs = gql`
-  type Query {
-    sayHi: String!
-  }
+
+const typeDefs = `
+    type Movie {
+        title: String
+        year: Int
+        imdbRating: Float
+        genres: [Genre] @relationship(type: "IN_GENRE", direction: OUT)
+    }
+
+    type Genre {
+        name: String
+        movies: [Movie] @relationship(type: "IN_GENRE", direction: IN)
+    }
 `;
 
-const resolvers = {
-  Query: {
-    sayHi: () => 'Hello world!'
-  }
-};
-
-// const ogm = new OGM({
-//   typeDefs,
-//   driver,
-//   });
+const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
 
   const server = new ApolloServer({
-    typeDefs,
-    resolvers
+    schema: neoSchema.schema,
+    context: { driver }
   });
 
 const PORT = process.env.port;

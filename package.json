@@ -21,10 +21,15 @@
   "homepage": "https://github.com/aaronzomback/oku#readme",
   "dependencies": {
     "@neo4j/graphql": "^1.2.4",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
     "apollo-server": "^3.0.2",
     "dotenv": "^10.0.0",
     "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
     "neo4j-driver": "^4.3.1",
+    "neo4j-graphql-js": "^2.19.4",
     "neo4j-node-ogm": "^1.1.14"
   },
   "devDependencies": {
