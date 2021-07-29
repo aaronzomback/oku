@@ -7,6 +7,7 @@ module.exports = `
     avatar: String
     Bio: String
     Location: String
+    Collection: [Haiku]!
   }
 
   type Haiku {
