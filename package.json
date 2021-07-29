@@ -1,0 +1,37 @@
+{
+  "name": "oku",
+  "version": "1.0.0",
+  "description": "haiku sharing app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronzomback/oku.git"
+  },
+  "keywords": [
+    "haiku"
+  ],
+  "author": "Aaron Zomback",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaronzomback/oku/issues"
+  },
+  "homepage": "https://github.com/aaronzomback/oku#readme",
+  "dependencies": {
+    "@neo4j/graphql": "^1.2.4",
+    "apollo-server": "^3.0.2",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.5.1",
+    "neo4j-driver": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.31.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-json": "^3.0.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "nodemon": "^2.0.12"
+  }
+}
