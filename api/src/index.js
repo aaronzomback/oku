@@ -1,17 +1,16 @@
-
-
-const typeDefs = require('./graphql-schema');
 const { ApolloServer } = require('apollo-server-express');
 const express = require('express');
 const app = express();
 const { Neo4jGraphQL } = require('@neo4j/graphql');
+const neo4j = require("neo4j-driver");
 
-// const { driver } = require('./config.js');
-
+const typeDefs = require('./graphql-schema');
 // set environment variables from .env
 require('dotenv').config();
 
-const neo4j = require("neo4j-driver");
+// const { driver } = require('./config.js');
+
+// connect to neo4J db
 const driver = neo4j.driver(
   process.env.NEO4J_URI || "bolt://localhost:7687",
   neo4j.auth.basic(process.env.NEO4J_USER || "neo4j", process.env.NEO4J_PASSWORD || "Reyeswright5")
@@ -24,6 +23,7 @@ const driver = neo4j.driver(
  * Read more in the docs:
  * https://neo4j.com/docs/graphql-manual/current/
  */
+
 
 const neoSchema = new Neo4jGraphQL({ typeDefs, driver })
 
