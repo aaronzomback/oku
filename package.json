@@ -24,7 +24,8 @@
     "apollo-server": "^3.0.2",
     "dotenv": "^10.0.0",
     "graphql": "^15.5.1",
-    "neo4j-driver": "^4.3.1"
+    "neo4j-driver": "^4.3.1",
+    "neo4j-node-ogm": "^1.1.14"
   },
   "devDependencies": {
     "eslint": "^7.31.0",
