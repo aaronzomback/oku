@@ -1,7 +1,7 @@
 const { OGM } = require("@neo4j/graphql-ogm");
 const neo4j = require("neo4j-driver");
 
-const typeDefs = require('../graphql-schema.js')
+const typeDefs = require('../schema/graphql-schema.js')
 require('dotenv').config();
 
 
@@ -13,4 +13,18 @@ const driver = neo4j.driver(
 const ogm = new OGM({ typeDefs, driver });
 
 const User = ogm.model("User");
-const users = await User.find();
+
+
+
+module.exports = {
+  Query: {
+    async getUsers() {
+      try {
+        const users = await User.find();
+        return users;
+      } catch (err) {
+        throw new Error(err);
+      }
+    }
+  }
+};

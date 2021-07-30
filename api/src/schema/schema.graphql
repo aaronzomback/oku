@@ -29,15 +29,16 @@ type Collection {
   author: User! @relationship(type: "HAS_COLLECTION", direction: IN)
 }
 
-  type Query {
-    users: [User]!
-    user(id: ID!): User
-    haikus: [Haiku]!
-    haiku(id: ID!): Haiku
-    me: User
-    collections: [Collection]!
-    collection(id: ID!): Collection
-  }
+# auto generated query and mutations fron neo4j/graphQL library?
+  # type Query {
+  #   getUsers: [User]
+  #   user(name: String!): User
+  #   haikus: [Haiku]!
+  #   haiku(id: ID!): Haiku
+  #   me: User
+  #   collections: [Collection]!
+  #   collection(id: ID!): Collection
+  # }
 
 
 
