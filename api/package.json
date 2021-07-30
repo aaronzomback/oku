@@ -33,7 +33,6 @@
     "graphql": "^15.5.1",
     "graphql-tag": "^2.12.5",
     "neo4j-driver": "^4.3.1",
-    "neo4j-graphql-js": "^2.19.4",
     "neo4j-node-ogm": "^1.1.14"
   },
   "devDependencies": {

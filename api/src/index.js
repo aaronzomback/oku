@@ -4,7 +4,8 @@ const app = express();
 const { Neo4jGraphQL } = require('@neo4j/graphql');
 const neo4j = require("neo4j-driver");
 
-const typeDefs = require('./graphql-schema');
+const typeDefs = require('./schema/graphql-schema');
+
 // set environment variables from .env
 require('dotenv').config();
 
