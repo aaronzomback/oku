@@ -1,21 +1,12 @@
 import React from 'react';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { createHttpLink } from 'apollo-link-http';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import App from '../App';
 
-import App from '../App.js'
-
-const httplink = createHttpLink({
-  uri: 'http://localhost:4000'
-})
- 
 // Pass our GraphQL endpoint to uri
 const client = new ApolloClient({ 
-  uri: `${httplink}/graphql`,
+  uri: process.env.REACT_APP_GRAPHQL_URI || 'http://localhost:4001/graphql',
   cache: new InMemoryCache() 
 });
- 
 
 export default (
   <ApolloProvider client={client}>

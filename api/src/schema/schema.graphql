@@ -10,6 +10,7 @@ type Haiku {
 
 type User {
     id: ID! @id
+    name: String!
     username: String!
     email: String!
     password: String!
@@ -39,8 +40,4 @@ type Collection {
   }
 
 
-type Mutation {
-    createUsers(UserIds: [ID]!): CreateUsersMutationResponse!
-    login(email: String): User
-}
 
