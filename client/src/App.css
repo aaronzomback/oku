@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'SF-Pro-Display-Regular';
+  src: local('SF-Pro-Display'), url(./assets/fonts/SF-Pro-Display-Regular.otf) format('opentype');
+}
+
+body {
+  font-family: 'SF-Pro-Display-Regular';
+  color: #60BADA;
+  background-color: #F2F4F7;
+}
