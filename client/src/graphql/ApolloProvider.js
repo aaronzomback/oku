@@ -7,7 +7,7 @@ import { createHttpLink } from 'apollo-link-http';
 import App from '../App.js'
 
 const httplink = createHttpLink({
-  uri: 'http://localhost:5000'
+  uri: 'http://localhost:4000'
 })
  
 // Pass our GraphQL endpoint to uri
