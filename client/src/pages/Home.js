@@ -2,9 +2,13 @@ import React from 'react';
 
 function Home() {
   return (
-    <div>
+    <div className="home-flex">
       <h1>
-        Oku - home
+        O 
+        <br />
+        K 
+        <br />
+        U
       </h1>
     </div>
   )

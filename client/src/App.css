@@ -7,4 +7,14 @@ body {
   font-family: 'SF-Pro-Display-Regular';
   color: #60BADA;
   background-color: #F2F4F7;
+  text-shadow: 4px 4px 0px #521CEE; 
+}
+
+h1 {
+  font-size: 100px;
+}
+
+div.home-flex {
+  display: flex;
+  justify-content: center;
 }
