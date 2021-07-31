@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'SF-Pro-Display-Regular';
-  src: local('SF-Pro-Display'), url(./assets/fonts/SF-Pro-Display-Regular.otf) format('opentype');
+  src: local('SF-Pro-Display'), url(../fonts/SF-Pro-Display-Regular.otf) format('opentype');
 }
 
 body {
@@ -57,4 +57,14 @@ button {
   font-size: 16px;
   cursor: pointer;
   box-shadow: 5px 5px 0px 1px #521CEE;
+}
+
+section.create-haiku {
+  display: flex;
+  justify-content: center;
+  transform:translateY(8rem);
+}
+
+h2.create-haiku-title {
+  text-align: center;
 }

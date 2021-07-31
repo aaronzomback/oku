@@ -1,6 +1,6 @@
 import React from 'react';
-// import { FETCH_HAIKUS_QUERY } from './graphql/Queries';
-import { useQuery, gql } from '@apollo/client';
+import { FETCH_HAIKUS_QUERY } from '../graphql/Queries';
+import { useQuery } from '@apollo/client';
 
 
 function Home() {
@@ -10,8 +10,6 @@ function Home() {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
   if (data) console.log(data);
-
-  console.log(data);
 
   return (
     <section>
@@ -51,12 +49,4 @@ function Home() {
   )
 }
 
-  const FETCH_HAIKUS_QUERY = gql`
-    query GetHaikus {
-    haikus {
-      id 
-      content
-    }
-  }
-  `
 export default Home;
