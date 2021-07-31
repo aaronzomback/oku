@@ -1,15 +1,14 @@
+require('dotenv').config();
 const { ApolloServer } = require('apollo-server-express');
 const express = require('express');
-const app = express();
 const { Neo4jGraphQL } = require('@neo4j/graphql');
 const neo4j = require("neo4j-driver");
 
 const typeDefs = require('./schema/graphql-schema');
+const app = express();
 
-// set environment variables from .env
-require('dotenv').config();
 
-// const { driver } = require('./config.js');
+
 
 // connect to neo4J db
 const driver = neo4j.driver(
@@ -47,7 +46,7 @@ const PATH = process.env.GRAPHQL_SERVER_PATH || '/graphql'
 const HOST = process.env.GRAPHQL_SERVER_HOST || '0.0.0.0'
 
 /*
- * Optionally, apply Express middleware for authentication, etc
+ * Apply Express middleware for authentication, etc
  * This also also allows us to specify a PATH for the GraphQL endpoint
  */
 
