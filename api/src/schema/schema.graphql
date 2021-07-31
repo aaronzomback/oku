@@ -1,0 +1,44 @@
+type Haiku {
+    id: ID! @id
+    content: String!
+    author: User! @relationship(type: "CREATED_HAIKU", direction: IN)
+    collected: Boolean!
+    submitted: Boolean!
+    featured: Boolean!
+    createdAt: DateTime! @timestamp(operations: [CREATE])
+}
+
+type User {
+    id: ID! @id
+    name: String!
+    username: String!
+    email: String!
+    password: String!
+    avatar: String
+    location: String
+    bio: String
+    haikus: [Haiku]! @relationship(type: "CREATED_HAIKU", direction: OUT)
+    collection: Collection! @relationship(type: "HAS_COLLECTION", direction: OUT)
+    createdAt: DateTime! @timestamp(operations: [CREATE])
+    updatedAt: DateTime! @timestamp(operations: [UPDATE])
+}
+
+type Collection {
+  id: ID! @id
+  haikus: [Haiku]! @relationship(type: "HAS_HAIKU", direction: OUT)
+  author: User! @relationship(type: "HAS_COLLECTION", direction: IN)
+}
+
+# auto generated query and mutations fron neo4j/graphQL library?
+  # type Query {
+  #   getUsers: [User]
+  #   user(name: String!): User
+  #   haikus: [Haiku]!
+  #   haiku(id: ID!): Haiku
+  #   me: User
+  #   collections: [Collection]!
+  #   collection(id: ID!): Collection
+  # }
+
+
+
