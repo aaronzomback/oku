@@ -8,12 +8,10 @@ const typeDefs = require('./schema/graphql-schema');
 const app = express();
 
 
-
-
 // connect to neo4J db
 const driver = neo4j.driver(
   process.env.NEO4J_URI || "bolt://localhost:7687",
-  neo4j.auth.basic(process.env.NEO4J_USER || "neo4j", process.env.NEO4J_PASSWORD || "Reyeswright5")
+  neo4j.auth.basic(process.env.NEO4J_USER || 'neo4j', process.env.NEO4J_PASSWORD || 'Reyeswright5')
 );
 
 
@@ -33,7 +31,7 @@ const neoSchema = new Neo4jGraphQL({ typeDefs, driver })
 const server = new ApolloServer({
   context: {
     driver,
-    driverConfig: { database: process.env.NEO4J_DATABASE || 'neo4j' },
+    driverConfig: { database: process.env.NEO4J_DATABASE },
   },
   schema: neoSchema.schema,
   introspection: true,
@@ -54,4 +52,3 @@ server.applyMiddleware({ app, PATH })
 app.listen(PORT, () => {
   console.log(`GraphQL server is up & away at 🚀 http://localhost:${PORT}/graphql`)
 })
-
