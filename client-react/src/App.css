@@ -40,6 +40,7 @@ input {
   padding: 8px 12px;
   font-size: 16px;
   margin-bottom: .75em;
+  width: 300px;
 }
 
 input:focus {
