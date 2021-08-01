@@ -7,6 +7,10 @@ query getHaikus {
   haikus {
     id 
     content
+    createdAt
+    author {
+      username
+    }
   }
 }
 `

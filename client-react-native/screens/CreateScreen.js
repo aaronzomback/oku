@@ -1,7 +1,8 @@
+import React from 'react';
 import HaikuForm from '../components/CreateHaikuForm';
 import { syllable } from 'syllable'
 
-function Create () {
+function CreateScreen () {
 
   console.log('syllables: ', syllable('hello there my name is dude.'));
 
@@ -15,4 +16,4 @@ function Create () {
 }
 
 
-export default Create;
+export default CreateScreen;

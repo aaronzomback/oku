@@ -8,8 +8,9 @@ import { createHttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
-import HomeScreen from './pages/HomeScreen'
-import CreateScreen from './pages/CreateScreen'
+import HomeScreen from './screens/HomeScreen'
+import CreateScreen from './screens/CreateScreen'
+import FeedScreen from './screens/FeedScreen';
 import { screenOptions } from './assets/styles'
 
 
@@ -67,22 +68,17 @@ export default function App() {
             name="Home"
             component={HomeScreen}
             options={{ title: 'OKU' }}
+            
           />
           <Stack.Screen
-            name="CreateScreen"
+            name="Create"
             component={CreateScreen}
-            options={({
-              route: {
-                params: {
-                  chapter: { number, title },
-                },
-              },
-            }) => ({
-              title: number ? `Chapter ${number}: ${title}` : title,
-              gestureResponseDistance: { horizontal: 500 },
-            })}
           />
-        </Stack.Navigator>
+          <Stack.Screen
+            name="Feed"
+            component={FeedScreen}
+          />
+          </Stack.Navigator>
         <StatusBar style="light" />
       </NavigationContainer>
     </ApolloProvider>
@@ -92,7 +88,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '##F2F4F7',
+    backgroundColor: '#F2F4F7',
     alignItems: 'center',
     justifyContent: 'center',
     color: '#60BADA'

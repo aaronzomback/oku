@@ -1,6 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
+  "expoServerPort": null,
   "packagerPort": 19000,
-  "webpackServerPort": 19006
+  "webpackServerPort": 19006,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://cf-nyn.anonymous.client-react-native.exp.direct",
+  "packagerNgrokUrl": "https://packager.cf-nyn.anonymous.client-react-native.exp.direct",
+  "ngrokPid": 2374
 }

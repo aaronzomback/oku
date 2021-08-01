@@ -1,11 +1,11 @@
 import React from 'react';
 import { FETCH_HAIKUS_QUERY } from '../graphql/Queries';
 import { useQuery } from '@apollo/client';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import { useFonts } from "@use-expo/font";
 import { AppLoading } from "expo";
 
-function Home() {
+function HomeScreen({navigation}) {
 
   const [isLoaded] = useFonts({
     "SFProDisplay-Regular": require("../assets/fonts/SFProDisplay-Regular.otf"),
@@ -54,6 +54,15 @@ function Home() {
                 Sign in
               </button>
             </form>
+            <Button
+              title="Create a haiku"
+              onPress={() => navigation.navigate('Create')}
+            />
+            <Button
+              title="Feed"
+              onPress={() => navigation.navigate('Feed')}
+            />
+
           </div>
         </div>
         </Text>
@@ -71,4 +80,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default HomeScreen;
