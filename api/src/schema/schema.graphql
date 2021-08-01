@@ -1,10 +1,11 @@
 type Haiku {
     id: ID! @id
     content: String!
-    author: User! @relationship(type: "CREATED_HAIKU", direction: IN)
-    collected: Boolean!
-    submitted: Boolean!
-    featured: Boolean!
+    author: User @relationship(type: "CREATED_HAIKU", direction: IN)
+    collected: Boolean
+    collectedBy: User @relationship(type: "COLLECTED_HAIKU", direction: IN)
+    submitted: Boolean
+    featured: Boolean
     createdAt: DateTime! @timestamp(operations: [CREATE])
 }
 
@@ -28,17 +29,6 @@ type Collection {
   haikus: [Haiku]! @relationship(type: "HAS_HAIKU", direction: OUT)
   author: User! @relationship(type: "HAS_COLLECTION", direction: IN)
 }
-
-# auto generated query and mutations fron neo4j/graphQL library?
-  # type Query {
-  #   getUsers: [User]
-  #   user(name: String!): User
-  #   haikus: [Haiku]!
-  #   haiku(id: ID!): Haiku
-  #   me: User
-  #   collections: [Collection]!
-  #   collection(id: ID!): Collection
-  # }
 
 
 

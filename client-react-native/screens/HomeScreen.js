@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { useFonts } from "@use-expo/font";
 import { AppLoading } from "expo";
+import { Input } from 'react-native-elements';
 
 function HomeScreen({navigation}) {
 
@@ -24,11 +25,6 @@ function HomeScreen({navigation}) {
       <section>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text style={styles.baseText}>
-        <ul>
-          {data.haikus.map( haiku => {
-            return <li key={haiku.id}>{haiku.content}</li>
-          })}
-        </ul>
         <div className="home-flex">
           <h1>
             O 
@@ -43,13 +39,13 @@ function HomeScreen({navigation}) {
 
             <form>
               <label>Email</label>
-              <input placeholder="Enter email...">
+              <Input placeholder="Enter email..."
 
-              </input>
+              />
               <label>Password</label>
-              <input placeholder="Enter password...">
+              <Input placeholder="Enter password..."
 
-              </input>
+              />
               <button>
                 Sign in
               </button>
