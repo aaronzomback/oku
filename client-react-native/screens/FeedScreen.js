@@ -27,7 +27,9 @@ function FeedScreen () {
             return haiku.author ?
             <div key={haiku.id}>
               <div>
-                {haiku.content}
+                <p>{haiku.line1}</p>
+                <p>{haiku.line2}</p>
+                <p>{haiku.line3}</p>
               </div>
               <Text style={styles.authorText}>
               <span>@{haiku.author.username}</span>
@@ -37,7 +39,9 @@ function FeedScreen () {
             :
             <div key={haiku.id}>
             <div>
-              {haiku.content}
+              <p>{haiku.line1}</p>
+              <p>{haiku.line2}</p>
+              <p>{haiku.line3}</p>
             </div>
             <Text style={styles.authorText}>
             <span>{moment(haiku.createdAt).fromNow()}</span>

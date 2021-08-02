@@ -1,6 +1,8 @@
 type Haiku {
     id: ID! @id
-    content: String!
+    line1: String!
+    line2: String!
+    line3: String!
     author: User @relationship(type: "CREATED_HAIKU", direction: IN)
     collected: Boolean
     collectedBy: User @relationship(type: "COLLECTED_HAIKU", direction: IN)

@@ -6,7 +6,9 @@ export const FETCH_HAIKUS_QUERY = gql`
 query getHaikus {
   haikus {
     id 
-    content
+    line1
+    line2
+    line3
     createdAt
     author {
       username

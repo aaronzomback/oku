@@ -1,24 +1,21 @@
 import React from 'react';
+import { syllable } from 'syllable';
 import { useForm } from '../util/hooks';
 import { useMutation } from '@apollo/client';
 import { CREATE_HAIKU_MUTATION } from '../graphql/Mutations';
 import { FETCH_HAIKUS_QUERY } from '../graphql/Queries';
 import { Input, Button } from 'react-native-elements';
 import { View, Text, StyleSheet, TextInput, Keyboard, TouchableOpacity } from 'react-native';
+import { syllableReq } from '../util/hooks';
 
 function HaikuForm () {
 
 
   const { values, onChange, onSubmit } = useForm(createHaikuCallback, {
-    contentFormField1: '',
-    contentFormField2: '',
-    contentFormField3: ''
+    line1: '',
+    line2: '',
+    line3: ''
   });
-
-
-
-
-
 
 
 
@@ -27,9 +24,9 @@ function HaikuForm () {
     // here we access our apollo cache to display all haikus & our recent posted one
     update(_, result) {
       console.log(result);
-      values.contentFormField1 = '';
-      values.contentFormField2 = '';
-      values.contentFormField3 = '';
+      values.line1 = '';
+      values.line2 = '';
+      values.line3 = '';
     }
   });
 
@@ -43,9 +40,9 @@ function HaikuForm () {
         Create haiku:
       </h2>
       <View style={styles.input}>
-      <input placeholder="Enter your first line..." name='content.formField1' value={values.contentFormField1} onChange={onChange}></input>
-      <input placeholder="Enter your second line..." name='content.formField2' value={values.contentFormField2} onChange={onChange}></input>
-      <input placeholder="Enter your third line..." name='contentformField3' value={values.contentFormField3} onChange={onChange}></input>
+      <input placeholder="Enter your first line..." name='line1' value={values.line1} onBlur={onChange} noValidate></input>
+      <input placeholder="Enter your second line..." name='line2' value={values.line2} onBlur={onChange} noValidate></input>
+      <input placeholder="Enter your third line..." name='line3' value={values.line3} onBlur={onChange} noValidate></input>
       </View>
       <View style={styles.button}>
       <button type="submit">Publish haiku</button>
