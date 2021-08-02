@@ -37,32 +37,53 @@ export default function SignUpForm () {
       }
     }
 
+    const onChangeHandlerName = (e) => {
+      setName(e.target.value);
+      error && setError(false);
+    }
+
+    const onChangeHandlerUsername = (e) => {
+      setUsername(e.target.value);
+      error && setError(false);
+    }
+
+    const onChangeHandlerEmail = (e) => {
+      setEmail(e.target.value);
+      error && setError(false);
+    }
+
+    const onChangeHandlerPassword = (e) => {
+      setPassword(e.target.value);
+      error && setError(false);
+    }
+  
+
   return (
     <div>
-    <form>
+    <form onSubmit={submitHandler}>
       <View style={{flex: 1}}>
       <label>
         Full name
       </label>
-      <input value={name}>
+      <input value={name} onChange={onChangeHandlerName}>
 
       </input>
       <label>
         Username
       </label>
-      <input value={username}>
+      <input value={username} onChange={onChangeHandlerUsername}>
 
       </input>
       <label>
         Email
       </label>
-      <input value={email}>
+      <input value={email} onChange={onChangeHandlerEmail}>
       
       </input>
       <label>
         Password
       </label>
-      <input value={password}>
+      <input value={password} onChange={onChangeHandlerPassword}>
       
       </input>
       <button type="submit">
