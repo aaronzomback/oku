@@ -24,7 +24,7 @@ function FeedScreen () {
       <Text style={styles.baseText}>
         <div>
           {data.haikus.map( haiku => {
-            return (
+            return haiku.author ?
             <div key={haiku.id}>
               <div>
                 {haiku.content}
@@ -34,7 +34,15 @@ function FeedScreen () {
               <span>{moment(haiku.createdAt).fromNow()}</span>
               </Text>
             </div> 
-            )
+            :
+            <div key={haiku.id}>
+            <div>
+              {haiku.content}
+            </div>
+            <Text style={styles.authorText}>
+            <span>{moment(haiku.createdAt).fromNow()}</span>
+            </Text>
+          </div>
           })}
         </div>
       </Text>
