@@ -12,29 +12,56 @@ import { syllableReq } from '../util/hooks';
 function HaikuForm () {
 
 
+  const [error, setError] = useState(false);
 
-
-  const { values, onChange, onSubmit } = useForm(createHaikuCallback, {
+  const { values, onChange } = useForm(createHaikuCallback, {
     line1: '',
     line2: '',
     line3: ''
   });
 
+  const [line1, setLine1] = useState('');
+  const [line2, setLine2] = useState('');
+  const [line3, setLine3] = useState('');
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
 
-  
-  
-  
-  const [createHaiku ] = useMutation(CREATE_HAIKU_MUTATION, {
-    variables: values,
-    // here we access our apollo cache to display all haikus & our recent posted one
-    update(_, result) {
-      console.log(result);
-      values.line1 = '';
-      values.line2 = '';
-      values.line3 = '';
+    if (syllable(line1) === 5 && syllable(line2) === 7 && syllable(line3) === 5) {
+      await createHaiku({
+        variables: {
+          line1,
+          line2,
+          line3
+        }
+      });
+      setLine1('');
+      setLine2('');
+      setLine3('');
+    } else {
+      setError(true);
+      alert('You must fulfill all syllable requirements! 👀')
     }
-  });
+  }
+
+
+  const onChangeHandlerLine1 = (e) => {
+    setLine1(e.target.value);
+    error && setError(false);
+  }
+
+  const onChangeHandlerLine2 = (e) => {
+    setLine2(e.target.value);
+    error && setError(false);
+  }
+
+  const onChangeHandlerLine3 = (e) => {
+    setLine3(e.target.value);
+    error && setError(false);
+  }
+
+
+  const [createHaiku ] = useMutation(CREATE_HAIKU_MUTATION);
   
 
   function createHaikuCallback() {
@@ -42,14 +69,15 @@ function HaikuForm () {
   }
   
   return (
-    <form className="create-haiku-form" onSubmit={onSubmit}>
+    <form className="create-haiku-form" onSubmit={submitHandler}>
       <h2 className="create-haiku-title">
         Create haiku:
       </h2>
       <View style={styles.input}>
-      <input placeholder="Enter your first line..." name='line1' value={values.line1} onChange={onChange} noValidate></input>
-      <input placeholder="Enter your second line..." name='line2' value={values.line2} onChange={onChange} noValidate></input>
-      <input placeholder="Enter your third line..." name='line3' value={values.line3} onChange={onChange} noValidate></input>
+      <input placeholder="Enter your first line..." name='line1' value={line1} onChange={onChangeHandlerLine1} noValidate></input>
+      {/* <span>Syllables: {syllable(e.target.value)}</span> */}
+      <input placeholder="Enter your second line..." name='line2' value={line2} onChange={onChangeHandlerLine2} noValidate></input>
+      <input placeholder="Enter your third line..." name='line3' value={line3} onChange={onChangeHandlerLine3} noValidate></input>
       </View>
       <View style={styles.button}>
       <button type="submit"><Text>Publish haiku</Text></button>

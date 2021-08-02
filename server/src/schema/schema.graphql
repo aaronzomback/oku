@@ -4,10 +4,10 @@ type Haiku {
     line2: String!
     line3: String!
     author: User @relationship(type: "CREATED_HAIKU", direction: IN)
-    collected: Boolean
+    collected: Boolean!
     collectedBy: User @relationship(type: "COLLECTED_HAIKU", direction: IN)
-    submitted: Boolean
-    featured: Boolean
+    submitted: Boolean!
+    featured: Boolean!
     createdAt: DateTime! @timestamp(operations: [CREATE])
 }
 
