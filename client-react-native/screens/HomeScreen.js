@@ -61,7 +61,10 @@ function HomeScreen({navigation}) {
               title="Word of Day"
               onPress={() => navigation.navigate('WordOfDay')}
             />
-
+            <Button
+              title="Sign up"
+              onPress={() => navigation.navigate('SignUp')}
+            />
           </div>
         </div>
         </Text>

@@ -1,7 +1,6 @@
+import { WORD_API_KEY, BASE_URL } from '../env';
 
-const baseUrl = 'https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key='
-const apiKey = '3r9kgm7xx911g2x75219kaixb2f0z8k4xtisyh65ms80nhfss'
-const apiUrl = baseUrl + apiKey;
+const apiUrl = BASE_URL + WORD_API_KEY;
 
 export const fetchRequest = async () => {
   try {

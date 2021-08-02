@@ -10,6 +10,7 @@ import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
 import HomeScreen from './screens/HomeScreen'
+import SignUp from './screens/SignUp'
 import CreateScreen from './screens/CreateScreen'
 import FeedScreen from './screens/FeedScreen';
 import WordOfDay from './screens/WordOfDayScreen';
@@ -68,13 +69,18 @@ export default function App() {
             options={{ title: 'OKU' }}
             
           />
+          <Stack.Screen 
+            name="SignUp"
+            component={SignUp}>
+
+          </Stack.Screen>
           <Stack.Screen
             name="Create"
             component={CreateScreen}
           />
           <Stack.Screen
             name="Feed"
-            component={FeedScreen}
+            component={FeedScreen} 
           />
           <Stack.Screen 
             name="WordOfDay">{(props) => (<WordOfDay words={words} {...props} />)}
