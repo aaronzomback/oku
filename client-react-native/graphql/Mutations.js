@@ -25,3 +25,31 @@ mutation createHaiku($line1: String!, $line2: String!, $line3: String!, $feature
 }
 `;
 
+
+export const CREATE_USER_MUTATION = gql`
+  mutation createUser($name: String!, $username: String!, $email: String!, $password: String!, $avatar: String, $location: String, $bio: String){
+    createUsers(input: [
+      {
+        name: $name
+        username: $username
+        email: $email
+        password: $password
+        avatar: $avatar
+        location: $location
+        bio: $bio
+      }
+    ])
+    {
+      users {
+        name
+        username
+        email
+        password
+        avatar
+        location
+        bio
+      }
+    }
+  }
+`
+

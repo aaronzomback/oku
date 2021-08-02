@@ -37,7 +37,8 @@
     "syllable": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "nodemon": "^2.0.12"
   },
   "private": true
 }

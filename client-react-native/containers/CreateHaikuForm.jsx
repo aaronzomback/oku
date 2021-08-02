@@ -7,22 +7,15 @@ import { CREATE_HAIKU_MUTATION } from '../graphql/Mutations';
 import { FETCH_HAIKUS_QUERY } from '../graphql/Queries';
 import { Input, Button } from 'react-native-elements';
 import { View, Text, StyleSheet, TextInput, Keyboard, TouchableOpacity } from 'react-native';
-import { syllableReq } from '../util/hooks';
 
 function HaikuForm () {
 
-
-  const [error, setError] = useState(false);
-
-  const { values, onChange } = useForm(createHaikuCallback, {
-    line1: '',
-    line2: '',
-    line3: ''
-  });
-
+  // initialize initial empty form inputs
   const [line1, setLine1] = useState('');
   const [line2, setLine2] = useState('');
   const [line3, setLine3] = useState('');
+
+  const [error, setError] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
