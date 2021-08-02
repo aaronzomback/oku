@@ -11,29 +11,20 @@ import { syllableReq } from '../util/hooks';
 
 function HaikuForm () {
 
-  const [values, setValues] = useState({});
-  const [error, setError] = useState(false);
-
-  // const { values, onChange, onSubmit } = useForm(createHaikuCallback, {
-  //   line1: '',
-  //   line2: '',
-  //   line3: ''
-  // });
-
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const { value } = e.target
-    if (syllable(value) === 5) {
-      callback();
-    } else {
-      setError(true);
-      alert('You must fit syllable reqs! 👀')
-    }
-  }
 
 
 
+  const { values, onChange, onSubmit } = useForm(createHaikuCallback, {
+    line1: '',
+    line2: '',
+    line3: ''
+  });
+
+
+
+  
+  
+  
   const [createHaiku ] = useMutation(CREATE_HAIKU_MUTATION, {
     variables: values,
     // here we access our apollo cache to display all haikus & our recent posted one
@@ -44,23 +35,24 @@ function HaikuForm () {
       values.line3 = '';
     }
   });
+  
 
   function createHaikuCallback() {
     createHaiku();
   }
   
   return (
-    <form className="create-haiku-form" onSubmit={submitHandler}>
+    <form className="create-haiku-form" onSubmit={onSubmit}>
       <h2 className="create-haiku-title">
         Create haiku:
       </h2>
       <View style={styles.input}>
-      <input placeholder="Enter your first line..." name='line1' value={values.line1} noValidate></input>
-      <input placeholder="Enter your second line..." name='line2' value={values.line2} noValidate></input>
-      <input placeholder="Enter your third line..." name='line3' value={values.line3} noValidate></input>
+      <input placeholder="Enter your first line..." name='line1' value={values.line1} onChange={onChange} noValidate></input>
+      <input placeholder="Enter your second line..." name='line2' value={values.line2} onChange={onChange} noValidate></input>
+      <input placeholder="Enter your third line..." name='line3' value={values.line3} onChange={onChange} noValidate></input>
       </View>
       <View style={styles.button}>
-      <button type="submit">Publish haiku</button>
+      <button type="submit"><Text>Publish haiku</Text></button>
       </View>
     </form>
   )

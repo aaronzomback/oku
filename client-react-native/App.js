@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { useState, useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { StyleSheet, Text, View } from 'react-native';
@@ -11,7 +12,12 @@ import { ApolloLink } from 'apollo-link';
 import HomeScreen from './screens/HomeScreen'
 import CreateScreen from './screens/CreateScreen'
 import FeedScreen from './screens/FeedScreen';
+import WordOfDay from './screens/WordOfDayScreen';
 import { screenOptions } from './assets/styles'
+import { fetchRequest } from './services/ApiClient';
+
+
+
 
 
 const Stack = createStackNavigator()
@@ -39,27 +45,19 @@ const client = new ApolloClient({
   cache: new InMemoryCache() 
 });
 
-client
-  .query({
-    query: gql`
-      {
-        users {
-          name
-          username
-          email
-          password
-          haikus {
-            content
-          }
-          id
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
-
 
 export default function App() {
+
+  const [ words, setWord ] = useState([]);
+
+  useEffect(() => {
+      (async () => {
+      const words = await fetchRequest()
+      console.log(words.definitions[1].text);
+      setWord(words) ;
+    })()
+  }, [])
+
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
@@ -78,6 +76,9 @@ export default function App() {
             name="Feed"
             component={FeedScreen}
           />
+          <Stack.Screen 
+            name="WordOfDay">{(props) => (<WordOfDay words={words} {...props} />)}
+          </Stack.Screen>
           </Stack.Navigator>
         <StatusBar style="light" />
       </NavigationContainer>

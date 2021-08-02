@@ -18,36 +18,35 @@ function HomeScreen({navigation}) {
   if (error) return `Error! ${error.message}`;
   if (data) console.log(data);
 
-  if (!isLoaded) {
-    return <AppLoading />;
-  } else {
-    return (
+  return !isLoaded ? <AppLoading />
+  :
+  (
       <section>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text style={styles.baseText}>
         <div className="home-flex">
           <h1>
-            O 
+            <Text>O</Text>
             <br />
-            K 
+            <Text>K</Text> 
             <br />
-            U
+            <Text>U</Text>
           </h1>
         </div>
         <div className="form-flex">
           <div>
 
             <form>
-              <label>Email</label>
+              <label><Text>Email</Text></label>
               <Input placeholder="Enter email..."
 
               />
-              <label>Password</label>
+              <label><Text>Password</Text></label>
               <Input placeholder="Enter password..."
 
               />
               <button>
-                Sign in
+                <Text>Sign in</Text>
               </button>
             </form>
             <Button
@@ -58,6 +57,10 @@ function HomeScreen({navigation}) {
               title="Feed"
               onPress={() => navigation.navigate('Feed')}
             />
+            <Button
+              title="Word of Day"
+              onPress={() => navigation.navigate('WordOfDay')}
+            />
 
           </div>
         </div>
@@ -66,7 +69,6 @@ function HomeScreen({navigation}) {
       </section>
     )
   }
-}
 
 const styles = StyleSheet.create({
   baseText: {

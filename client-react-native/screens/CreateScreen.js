@@ -1,5 +1,5 @@
 import React from 'react';
-import HaikuForm from '../components/CreateHaikuForm';
+import HaikuForm from '../containers/CreateHaikuForm';
 import { syllable } from 'syllable'
 
 function CreateScreen () {

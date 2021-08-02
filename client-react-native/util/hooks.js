@@ -9,22 +9,6 @@ export const useForm = (callback, {}) => {
   const onChange = (event) => {
     const { name, value } = event.target
     
-    switch (name) {
-      case 'line1':
-        // write validation logic here
-        setValues({ ...values, line1: value });                 
-        break;
-      case 'line2':
-        // write validation logic here               
-  setValues({ ...values, line2: value });
-        break;
-      case 'line3':
-        // write validation logic here
-        setValues({ ...values, line3: value });       
-        break;
-      default:
-        break;
-    }
     console.log('target: ', event.target);
     console.log('name: ', name);
     console.log('value: ', value);
