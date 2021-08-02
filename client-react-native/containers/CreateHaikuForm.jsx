@@ -1,6 +1,7 @@
 import React from 'react';
 import { syllable } from 'syllable';
 import { useForm } from '../util/hooks';
+import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_HAIKU_MUTATION } from '../graphql/Mutations';
 import { FETCH_HAIKUS_QUERY } from '../graphql/Queries';
@@ -10,16 +11,30 @@ import { syllableReq } from '../util/hooks';
 
 function HaikuForm () {
 
+  const [values, setValues] = useState({});
+  const [error, setError] = useState(false);
 
-  const { values, onChange, onSubmit } = useForm(createHaikuCallback, {
-    line1: '',
-    line2: '',
-    line3: ''
-  });
+  // const { values, onChange, onSubmit } = useForm(createHaikuCallback, {
+  //   line1: '',
+  //   line2: '',
+  //   line3: ''
+  // });
+
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const { value } = e.target
+    if (syllable(value) === 5) {
+      callback();
+    } else {
+      setError(true);
+      alert('You must fit syllable reqs! 👀')
+    }
+  }
 
 
 
-  const [createHaiku, { error }] = useMutation(CREATE_HAIKU_MUTATION, {
+  const [createHaiku ] = useMutation(CREATE_HAIKU_MUTATION, {
     variables: values,
     // here we access our apollo cache to display all haikus & our recent posted one
     update(_, result) {
@@ -35,14 +50,14 @@ function HaikuForm () {
   }
   
   return (
-    <form className="create-haiku-form" onSubmit={onSubmit}>
+    <form className="create-haiku-form" onSubmit={submitHandler}>
       <h2 className="create-haiku-title">
         Create haiku:
       </h2>
       <View style={styles.input}>
-      <input placeholder="Enter your first line..." name='line1' value={values.line1} onBlur={onChange} noValidate></input>
-      <input placeholder="Enter your second line..." name='line2' value={values.line2} onBlur={onChange} noValidate></input>
-      <input placeholder="Enter your third line..." name='line3' value={values.line3} onBlur={onChange} noValidate></input>
+      <input placeholder="Enter your first line..." name='line1' value={values.line1} noValidate></input>
+      <input placeholder="Enter your second line..." name='line2' value={values.line2} noValidate></input>
+      <input placeholder="Enter your third line..." name='line3' value={values.line3} noValidate></input>
       </View>
       <View style={styles.button}>
       <button type="submit">Publish haiku</button>
