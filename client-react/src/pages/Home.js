@@ -15,7 +15,7 @@ function Home() {
     <section>
       <ul>
         {data.haikus.map( haiku => {
-          return <li key={haiku.id}>{haiku.content}</li>
+          return <li key={haiku.id}>{haiku.line1}</li>
         })}
       </ul>
       <div className="home-flex">

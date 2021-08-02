@@ -37,7 +37,9 @@ client
           email
           password
           haikus {
-            content
+            line1
+            line2
+            line3
           }
           id
         }
