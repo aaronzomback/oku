@@ -10,20 +10,26 @@ function HaikuForm () {
 
 
   const { values, onChange, onSubmit } = useForm(createHaikuCallback, {
-    content: ''
+    contentFormField1: '',
+    contentFormField2: '',
+    contentFormField3: ''
   });
+
+
+
+
+
+
+
 
   const [createHaiku, { error }] = useMutation(CREATE_HAIKU_MUTATION, {
     variables: values,
     // here we access our apollo cache to display all haikus & our recent posted one
     update(_, result) {
-      // const data = proxy.readQuery({
-      //   query: FETCH_HAIKUS_QUERY
-      // })
-      // data.getHaikus = [...data.createHaikus, result.data.getHaikus]
-      // proxy.writeQuery({ query: FETCH_HAIKUS_QUERY, data })
       console.log(result);
-      values.content = '';
+      values.contentFormField1 = '';
+      values.contentFormField2 = '';
+      values.contentFormField3 = '';
     }
   });
 
@@ -32,22 +38,19 @@ function HaikuForm () {
   }
   
   return (
-    <View style={styles.baseText}>
-      <form className="create-haiku-form" onSubmit={onSubmit}>
-        <h2 className="create-haiku-title" style={{ textAlign: 'center' }}>
-          Create haiku:
-        </h2>
-      <View styles={styles.inputFlex}>
-        <TextInput style={styles.input} placeholder="Enter your first line..." name='content' value={values.content} onChange={onChange}></TextInput>
-        <TextInput style={styles.input} placeholder="Enter your second line..." name='content' value={values.content} onChange={onChange}></TextInput>
-        <TextInput style={styles.input} placeholder="Enter your third line..." name='content' value={values.content} onChange={onChange}></TextInput>
-        <input type='hidden' name='content' value={values.content} onChange={onChange}></input>
+    <form className="create-haiku-form" onSubmit={onSubmit}>
+      <h2 className="create-haiku-title">
+        Create haiku:
+      </h2>
+      <View style={styles.input}>
+      <input placeholder="Enter your first line..." name='content.formField1' value={values.contentFormField1} onChange={onChange}></input>
+      <input placeholder="Enter your second line..." name='content.formField2' value={values.contentFormField2} onChange={onChange}></input>
+      <input placeholder="Enter your third line..." name='contentformField3' value={values.contentFormField3} onChange={onChange}></input>
       </View>
-        <TouchableOpacity type="submit" style={styles.button}>
-          Publish haiku
-        </TouchableOpacity>
-      </form>
-    </View>
+      <View style={styles.button}>
+      <button type="submit">Publish haiku</button>
+      </View>
+    </form>
   )
 }
 
@@ -79,6 +82,7 @@ const styles = StyleSheet.create({
     // width: '50%'
   },
   button: {
+    marginTop: 48,
     flex: 1, 
     textAlign: 'center', 
     width: 400, 
