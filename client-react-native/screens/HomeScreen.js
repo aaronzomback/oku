@@ -29,13 +29,13 @@ function HomeScreen({navigation}) {
       <section>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text style={styles.baseText}>
-        <div className="home-flex">
+        <View className="home-flex">
           <h1 style={{textAlign: 'center', fontSize: 72 }}>
             <Text style={{textShadowColor:'#521CEE', textShadowOffset:{width: 3, height: 3},textShadowRadius:0}}>O</Text> <br></br>
             <Text style={{textShadowColor:'#521CEE', textShadowOffset:{width: 3, height: 3},textShadowRadius:0}}>K</Text> <br></br>
             <Text style={{textShadowColor:'#521CEE', textShadowOffset:{width: 3, height: 3},textShadowRadius:0}}>U</Text> <br></br>
           </h1>
-        </div>
+        </View>
           <Auth navigation={navigation} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}>
 
           </Auth>

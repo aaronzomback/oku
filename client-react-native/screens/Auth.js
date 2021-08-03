@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useLazyQuery } from '@apollo/client';
 import { FETCH_USER_QUERY, FETCH_USER_BY_EMAIL } from '../graphql/Queries';
 import { View, Stylesheet, Button, Text } from 'react-native';
@@ -16,11 +16,26 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
 
   const [error, setError] = useState(false);
 
-  const [ getUser, {data} ] = useLazyQuery(FETCH_USER_QUERY);
 
+  const [ getUser, {data} ] = useLazyQuery(FETCH_USER_QUERY);
+  data ? console.log('is it this?: ', data) : null;
+
+  if (data) {
+    if (data.length) {
+      console.log('data call: ', data);
+      setIsAuthenticated(true);
+      console.log('is auth?: ', isAuthenticated)
+      navigation.navigate('Landing');
+    }
+    else {
+      setIsAuthenticated(false);
+      setError(true);
+      alert('👀 Email/password are invalid! Try again!');
+    }
+  }
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (email == '' && password == '') {
+    if (email == '' || password == '') {
       setIsAuthenticated(false);
       setError(true);
       alert('👀 All form inputs must be completed to join!');
@@ -29,18 +44,11 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
         variables: {
           email,
           password
-        }
+        },
       });
-      if (data) {
-        setIsAuthenticated(true);
-        navigation.navigate('Landing');
-        setEmail('');
-        setPassword('');
-      } else {
-        setIsAuthenticated(false);
-        setError(true);
-        alert('👀 Email/password are invalid! Try again!');
-      }
+      setEmail('');
+      setPassword('');
+      console.log('line 45: ', data);
     } 
   }
 
@@ -72,13 +80,14 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
                      name="email"
                      value={email}
                      noValidate
+                     
               ></input>
               <label style={{fontSize: 16, marginBottom: 4, marginTop: 8 }}>Password</label>
               <input placeholder="Enter password..."
                      onChange={onChangeHandlerPassword}
                      name="password"
                      value={password}
-                     typer="password"
+                     type="password"
                      noValidate
 
               ></input>
