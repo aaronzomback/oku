@@ -17,22 +17,23 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
   const [error, setError] = useState(false);
 
 
-  const [ getUser, {data} ] = useLazyQuery(FETCH_USER_QUERY);
+  const [ getUser, { data, loading, called } ] = useLazyQuery(FETCH_USER_QUERY);
   data ? console.log('is it this?: ', data) : null;
 
-  if (data) {
-    if (data.length) {
-      console.log('data call: ', data);
-      setIsAuthenticated(true);
-      console.log('is auth?: ', isAuthenticated)
-      navigation.navigate('Landing');
-    }
-    else {
-      setIsAuthenticated(false);
-      setError(true);
-      alert('👀 Email/password are invalid! Try again!');
-    }
-  }
+  if (loading) return <p>Loading ...</p>;
+
+  // if (data) {
+  //   if (data.length) {
+  //     console.log('data call: ', data);
+  //     setIsAuthenticated(true);
+  //     console.log('is auth?: ', isAuthenticated)
+  //     navigation.navigate('Landing');
+  //   }
+  //   else {
+  //     setIsAuthenticated(false);
+  //     setError(true);
+  //   }
+  // }
   const submitHandler = async (e) => {
     e.preventDefault();
     if (email == '' || password == '') {
@@ -46,8 +47,10 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
           password
         },
       });
+      setIsAuthenticated(true);
       setEmail('');
       setPassword('');
+      navigation.navigate('Landing');
       console.log('line 45: ', data);
     } 
   }
