@@ -30,18 +30,21 @@ function HomeScreen({navigation}) {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text style={styles.baseText}>
         <div className="home-flex">
-          <h1>
-            <Text>O</Text>
-            <br />
-            <Text>K</Text> 
-            <br />
-            <Text>U</Text>
+          <h1 style={{textAlign: 'center'}}>
+            <Text>O</Text> <br></br>
+            <Text>K</Text> <br></br>
+            <Text>U</Text> <br></br>
           </h1>
         </div>
           <Auth navigation={navigation} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}>
 
           </Auth>
         </Text>
+          <Button style={{backgroundColor: '#F2F4F7', padding: 16, marginTop: 16 , borderColor: '#60BADA'}}
+    title="Sign up"
+    onPress={() => navigation.navigate('SignUp')}
+  
+  > Sign up </Button>
       </View>
       </section>
     )

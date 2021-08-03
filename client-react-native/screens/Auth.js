@@ -18,26 +18,33 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
 
   const [ getUser, {data} ] = useLazyQuery(FETCH_USER_QUERY);
   data ? console.log(data) : null
+  
   console.log('navigation: ', navigation);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (email != '' && password != '') {
+    if (email == '' && password == '') {
+      setIsAuthenticated(false);
+      setError(true);
+      alert('👀 All form inputs must be completed to join!');
+    } else {
       await getUser({
         variables: {
           email,
           password
         }
       });
-      setIsAuthenticated(true);
-      setEmail('');
-      setPassword('');
-      navigation.navigate('Landing');
-
-    } else {
-      setError(true);
-      alert('👀 All form inputs must be completed to join!');
-    }
+      if (data) {
+        setIsAuthenticated(true);
+        navigation.navigate('Landing');
+        setEmail('');
+        setPassword('');
+      } else {
+        setIsAuthenticated(false);
+        setError(true);
+        alert('👀 Email/password are invalid! Try again!');
+      }
+    } 
   }
 
   
@@ -57,19 +64,19 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
 
 
   return (
-        <div className="form-flex">
+        <div className="form-flex" style={{flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
           <div>
-            <View style={{flex: 1, alignItems: 'center', flexDirection: 'row', justifyContent: 'center'}}>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <form onSubmit={submitHandler}>
-              <View style={{flex: 1, alignContent: 'center'}}>
-              <label>Email</label>
+              <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
+              <label style={{fontSize: 16, marginBottom: 4 }}>Email</label>
               <input placeholder="Enter email..."
                      onChange={onChangeHandlerEmail}
                      name="email"
                      value={email}
                      noValidate
               ></input>
-              <label>Password</label>
+              <label style={{fontSize: 16, marginBottom: 4, marginTop: 8 }}>Password</label>
               <input placeholder="Enter password..."
                      onChange={onChangeHandlerPassword}
                      name="password"
@@ -78,7 +85,7 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
                      noValidate
 
               ></input>
-              <button type="submit">
+              <button type="submit" style={{marginTop: 8, backgroundColor: '#60BADA'}}>
                 Sign in
               </button>
               </View>
