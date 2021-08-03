@@ -9,11 +9,14 @@ import { createHttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
-import HomeScreen from './screens/HomeScreen'
+import Auth from './screens/Auth';
+import HomeScreen from './screens/HomeScreen';
+import LandingScreen from './screens/LandingScreen';
 import SignUp from './screens/SignUp'
 import CreateScreen from './screens/CreateScreen'
 import FeedScreen from './screens/FeedScreen';
 import WordOfDay from './screens/WordOfDayScreen';
+import MyHaikus from './screens/MyHaikus';
 import { screenOptions } from './assets/styles'
 import { fetchRequest } from './services/ApiClient';
 
@@ -50,6 +53,7 @@ const client = new ApolloClient({
 export default function App() {
 
   const [ words, setWord ] = useState([]);
+  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
 
   useEffect(() => {
       (async () => {
@@ -67,6 +71,7 @@ export default function App() {
             name="Home"
             component={HomeScreen}
             options={{ title: 'OKU' }}
+            isAuthenticated={isAuthenticated}
             
           />
           <Stack.Screen 
@@ -82,8 +87,18 @@ export default function App() {
             name="Feed"
             component={FeedScreen} 
           />
+          <Stack.Screen
+            name="Landing"
+            component={LandingScreen} 
+          />
           <Stack.Screen 
             name="WordOfDay">{(props) => (<WordOfDay words={words} {...props} />)}
+          </Stack.Screen>
+          <Stack.Screen 
+            name="MyHaikus">{(props) => (<MyHaikus isAuthenticated={isAuthenticated} {...props} />)}
+          </Stack.Screen>
+          <Stack.Screen name="Auth" component={Auth} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated}>
+
           </Stack.Screen>
           </Stack.Navigator>
         <StatusBar style="light" />

@@ -4,10 +4,14 @@ import { useQuery } from '@apollo/client';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { useFonts } from "@use-expo/font";
 import { AppLoading } from "expo";
+import { useState } from 'react';
 
-import LogInForm from '../containers/LogInForm';
+import Auth from './Auth';
 
 function HomeScreen({navigation}) {
+
+  const [isAuthenticated, setIsAuthenticated ] = useState(false)
+
 
   const [isLoaded] = useFonts({
     "SFProDisplay-Regular": require("../assets/fonts/SFProDisplay-Regular.otf"),
@@ -34,25 +38,9 @@ function HomeScreen({navigation}) {
             <Text>U</Text>
           </h1>
         </div>
-        <Button
-              title="Create a haiku"
-              onPress={() => navigation.navigate('Create')}
-            />
-            <Button
-              title="Feed"
-              onPress={() => navigation.navigate('Feed')}
-            />
-            <Button
-              title="Word of Day"
-              onPress={() => navigation.navigate('WordOfDay')}
-            />
-            <Button
-              title="Sign up"
-              onPress={() => navigation.navigate('SignUp')}
-            />
-      <LogInForm>
+          <Auth navigation={navigation} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}>
 
-      </LogInForm>
+          </Auth>
         </Text>
       </View>
       </section>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 
 import { useState } from 'react';
 import { useQuery, useLazyQuery } from '@apollo/client';
@@ -8,7 +9,7 @@ import { Input } from 'react-native-elements';
 
 
 
-function LogInForm ({isAuthenticated, setIsAuthenticated, navigation}) {
+function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +18,7 @@ function LogInForm ({isAuthenticated, setIsAuthenticated, navigation}) {
 
   const [ getUser, {data} ] = useLazyQuery(FETCH_USER_QUERY);
   data ? console.log(data) : null
+  console.log('navigation: ', navigation);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -30,6 +32,7 @@ function LogInForm ({isAuthenticated, setIsAuthenticated, navigation}) {
       setIsAuthenticated(true);
       setEmail('');
       setPassword('');
+      navigation.navigate('Landing');
 
     } else {
       setError(true);
@@ -86,4 +89,4 @@ function LogInForm ({isAuthenticated, setIsAuthenticated, navigation}) {
   )
 }
 
-export default LogInForm;
+export default Auth;
