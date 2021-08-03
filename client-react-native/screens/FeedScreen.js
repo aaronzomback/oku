@@ -20,22 +20,28 @@ function FeedScreen () {
   if (data) console.log(data);
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
       <Text style={styles.baseText}>
         <div>
           {data.haikus.map( haiku => {
             return haiku.author ?
-            <div key={haiku.id}>
+            <div key={haiku.id} style={{marginBottom: 8}}>
               <div>
-                <p>{haiku.line1}</p>
-                <p>{haiku.line2}</p>
-                <p>{haiku.line3}</p>
+                <p style={{marginBottom: 2}}>{haiku.line1},</p>
+                <p style={{margin: 2}}>{haiku.line2},</p>
+                <p style={{margin: 2}}>{haiku.line3}</p>
               </div>
-              <Text style={styles.authorText}>
-              <span>@{haiku.author.username}</span>
-              <span>{moment(haiku.createdAt).fromNow()}</span>
-              </Text>
-            </div> 
+              <View style={styles.authorText}>
+              <p style={{margin: 0 }}>@{haiku.author.username}</p>
+              <p style={{marginTop: 2, borderWidth: 2}}>{moment(haiku.createdAt).fromNow()}</p>
+              </View>
+              <View
+  style={{
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+  }}
+></View>
+     </div> 
             :
             <div key={haiku.id}>
             <div>
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
     color: '#60BADA'
   },
   authorText: {
-    fontSize: 14
+    fontSize: 14,
   }
 });
 
