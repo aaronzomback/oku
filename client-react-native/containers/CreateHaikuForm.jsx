@@ -15,6 +15,10 @@ function HaikuForm () {
   const [line2, setLine2] = useState('');
   const [line3, setLine3] = useState('');
 
+  const [syllablesLine1, setSyllablesLine1] = useState('');
+  const [syllablesLine2, setSyllablesLine2] = useState('');
+  const [syllablesLine3, setSyllablesLine3] = useState('');
+
   const [error, setError] = useState(false);
 
   const submitHandler = async (e) => {
@@ -40,16 +44,19 @@ function HaikuForm () {
 
   const onChangeHandlerLine1 = (e) => {
     setLine1(e.target.value);
+    setSyllablesLine1(syllable(e.target.value));
     error && setError(false);
   }
 
   const onChangeHandlerLine2 = (e) => {
     setLine2(e.target.value);
+    setSyllablesLine2(syllable(e.target.value));
     error && setError(false);
   }
 
   const onChangeHandlerLine3 = (e) => {
     setLine3(e.target.value);
+    setSyllablesLine3(syllable(e.target.value));
     error && setError(false);
   }
 
@@ -68,9 +75,11 @@ function HaikuForm () {
       </h2>
       <View style={styles.input}>
       <input placeholder="Enter your first line..." name='line1' value={line1} onChange={onChangeHandlerLine1} noValidate></input>
-      {/* <span>Syllables: {syllable(e.target.value)}</span> */}
+      <Text>{ syllablesLine1 } / 5 syllables remaining</Text>
       <input placeholder="Enter your second line..." name='line2' value={line2} onChange={onChangeHandlerLine2} noValidate></input>
+      <Text>{ syllablesLine2 } / 7 syllables remaining</Text>
       <input placeholder="Enter your third line..." name='line3' value={line3} onChange={onChangeHandlerLine3} noValidate></input>
+      <Text>{ syllablesLine3 }  / 5 syllables remaining</Text>
       </View>
       <View style={styles.button}>
       <button type="submit"><Text>Publish haiku</Text></button>
@@ -107,7 +116,7 @@ const styles = StyleSheet.create({
     // width: '50%'
   },
   button: {
-    marginTop: 48,
+    marginTop: 88,
     flex: 1, 
     textAlign: 'center', 
     width: 400, 

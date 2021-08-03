@@ -21,7 +21,7 @@ type User {
     location: String
     bio: String
     haikus: [Haiku]! @relationship(type: "CREATED_HAIKU", direction: OUT)
-    collection: Collection! @relationship(type: "HAS_COLLECTION", direction: OUT)
+    collection: Collection @relationship(type: "HAS_COLLECTION", direction: OUT)
     createdAt: DateTime! @timestamp(operations: [CREATE])
     updatedAt: DateTime! @timestamp(operations: [UPDATE])
 }
