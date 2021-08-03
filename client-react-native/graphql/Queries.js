@@ -16,3 +16,31 @@ query getHaikus {
   }
 }
 `
+
+export const FETCH_USER_QUERY = gql`
+query getUser($email: String!, $password: String!) {
+    users(where: { email: $email, password: $password }) {
+        username
+        name
+        email
+        password
+    }
+}
+`
+
+
+// export const FETCH_USER_HAIKUS_QUERY = gql`
+// query getUserHaikus {
+//   haikus {
+//     id 
+//     line1
+//     line2
+//     line3
+//     createdAt
+//     author {
+//       username
+//     }
+//   }
+// }
+// `
+

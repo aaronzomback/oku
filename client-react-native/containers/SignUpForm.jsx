@@ -17,7 +17,8 @@ export default function SignUpForm () {
 
     const [createUser] = useMutation(CREATE_USER_MUTATION);
 
-    const submitHandler = async () => {
+    const submitHandler = async (e) => {
+      e.preventDefault();
       if (name != '' && username != '' && email != '' && password != '') {
         await createUser({
           variables: {

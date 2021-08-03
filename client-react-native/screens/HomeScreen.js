@@ -4,7 +4,8 @@ import { useQuery } from '@apollo/client';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { useFonts } from "@use-expo/font";
 import { AppLoading } from "expo";
-import { Input } from 'react-native-elements';
+
+import LogInForm from '../containers/LogInForm';
 
 function HomeScreen({navigation}) {
 
@@ -33,23 +34,7 @@ function HomeScreen({navigation}) {
             <Text>U</Text>
           </h1>
         </div>
-        <div className="form-flex">
-          <div>
-
-            <form>
-              <label><Text>Email</Text></label>
-              <Input placeholder="Enter email..."
-
-              />
-              <label><Text>Password</Text></label>
-              <Input placeholder="Enter password..."
-
-              />
-              <button>
-                <Text>Sign in</Text>
-              </button>
-            </form>
-            <Button
+        <Button
               title="Create a haiku"
               onPress={() => navigation.navigate('Create')}
             />
@@ -65,8 +50,9 @@ function HomeScreen({navigation}) {
               title="Sign up"
               onPress={() => navigation.navigate('SignUp')}
             />
-          </div>
-        </div>
+      <LogInForm>
+
+      </LogInForm>
         </Text>
       </View>
       </section>
