@@ -17,9 +17,6 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
   const [error, setError] = useState(false);
 
   const [ getUser, {data} ] = useLazyQuery(FETCH_USER_QUERY);
-  data ? console.log(data) : null
-  
-  console.log('navigation: ', navigation);
 
   const submitHandler = async (e) => {
     e.preventDefault();

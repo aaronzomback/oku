@@ -23,9 +23,21 @@ function LandingScreen ({navigation}) {
     title="Word of Day"
     onPress={() => navigation.navigate('WordOfDay')}
   />
+    <Button
+    title="My Collection"
+    onPress={() => navigation.navigate('MyCollection')}
+  />
   <Button
-    title="Sign up"
-    onPress={() => navigation.navigate('SignUp')}
+    title="My Haikus"
+    onPress={() => navigation.navigate('MyHaikus')}
+  />
+    <Button
+    title="Profile"
+    onPress={() => navigation.navigate('Profile')}
+  />
+  <Button
+    title="Gallery"
+    onPress={() => navigation.navigate('Gallery')}
   />
 </View>
 

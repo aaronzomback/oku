@@ -75,7 +75,7 @@ function LogInForm ({isAuthenticated, setIsAuthenticated, navigation}) {
                      noValidate
 
               ></input>
-              <button type="submit">
+              <button type="submit" style={{marginBottom: 16}}>
                 Sign in
               </button>
               </View>

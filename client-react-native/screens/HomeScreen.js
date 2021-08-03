@@ -40,7 +40,7 @@ function HomeScreen({navigation}) {
 
           </Auth>
         </Text>
-          <Button style={{backgroundColor: '#F2F4F7', padding: 16, marginTop: 16 , borderColor: '#60BADA'}}
+          <Button color='black' style={{backgroundColor: '#F2F4F7', padding: 16, marginTop: 16 , borderColor: '#60BADA'}}
     title="Sign up"
     onPress={() => navigation.navigate('SignUp')}
   
