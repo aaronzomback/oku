@@ -54,19 +54,19 @@ function LogInForm ({isAuthenticated, setIsAuthenticated, navigation}) {
 
 
   return (
-        <div className="form-flex">
-          <div>
+        <View className="form-flex">
+          <View>
             <View style={{flex: 1, alignItems: 'center', flexDirection: 'row', justifyContent: 'center'}}>
             <form onSubmit={submitHandler}>
               <View style={{flex: 1, alignContent: 'center'}}>
-              <label>Email</label>
+              <Text style={{color: '#F5F2EB', fontSize: '24px'}}>Email</Text>
               <input placeholder="Enter email..."
                      onChange={onChangeHandlerEmail}
                      name="email"
                      value={email}
                      noValidate
               ></input>
-              <label>Password</label>
+              <Text style={{color: '#F5F2EB', fontSize: '24px'}}>Password</Text>
               <input placeholder="Enter password..."
                      onChange={onChangeHandlerPassword}
                      name="password"
@@ -81,8 +81,8 @@ function LogInForm ({isAuthenticated, setIsAuthenticated, navigation}) {
               </View>
             </form>
             </View>
-          </div>
-        </div>
+          </View>
+        </View>
   )
 }
 

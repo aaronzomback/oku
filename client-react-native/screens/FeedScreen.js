@@ -10,7 +10,7 @@ import moment from 'moment';
 function FeedScreen () {
 
   const [isLoaded] = useFonts({
-    "SFProDisplay-Regular": require("../assets/fonts/SFProDisplay-Regular.otf"),
+    "SFTextroDisTextlay-Regular": require("../assets/fonts/SFProDisplay-Regular.otf"),
   });
 
   const { data, loading, error } = useQuery(FETCH_HAIKUS_QUERY);
@@ -20,43 +20,43 @@ function FeedScreen () {
   if (data) console.log(data);
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+    <View style={{backgroundColor: '#F5F2EB', color: '#20994C',  flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
       <Text style={styles.baseText}>
-        <div>
+        <View>
           {data.haikus.map( haiku => {
             return haiku.author ?
-            <div key={haiku.id} style={{marginBottom: 8}}>
-              <div>
-                <p style={{marginBottom: 2}}>{haiku.line1},</p>
-                <p style={{margin: 2}}>{haiku.line2},</p>
-                <p style={{margin: 2}}>{haiku.line3}</p>
-              </div>
+            <View key={haiku.id} style={{marginBottom: 8}}>
+              <View>
+                <Text style={{marginBottom: 2, color: '#20994C'}}>{haiku.line1},</Text>
+                <Text style={{margin: 2, color: '#20994C'}}>{haiku.line2},</Text>
+                <Text style={{margin: 2, color: '#20994C'}}>{haiku.line3}</Text>
+              </View>
               <View style={styles.authorText}>
-              <p style={{margin: 0 }}>@{haiku.author.username}</p>
-              <p style={{marginTop: 2, borderWidth: 2}}>{moment(haiku.createdAt).fromNow()}</p>
+              <Text style={{margin: 0, color: '#20994C' }}>@{haiku.author.username}</Text>
+              <Text style={{marginToText: 2, borderColor: '#20994C',  color: '#20994C'}}>{moment(haiku.createdAt).fromNow()}</Text>
               </View>
               <View
   style={{
-    borderBottomColor: 'black',
+    borderBottomColor: '#20994C',
     borderBottomWidth: 1,
   }}
 ></View>
-     </div> 
+     </View> 
             :
-            <div key={haiku.id}>
-            <div>
+            <Text key={haiku.id}>
+            <Text>
               <Text>
-              <p>{haiku.line1}</p>
-              <p>{haiku.line2}</p>
-              <p>{haiku.line3}</p>
+              <Text style={{marginBottom: 2, color: '#20994C'}}>{haiku.line1}</Text>
+              <Text style={{margin: 2, color: '#20994C'}}>{haiku.line2}</Text>
+              <Text style={{margin: 2, color: '#20994C'}}>{haiku.line3}</Text>
               </Text>
-            </div>
-            <Text style={styles.authorText}>
-            <span>{moment(haiku.createdAt).fromNow()}</span>
             </Text>
-          </div>
+            <Text style={styles.authorText}>
+            <Text style={{borderWidth: 0, border: "none", margin: 2, color: '#20994C'}}>{moment(haiku.createdAt).fromNow()}</Text>
+            </Text>
+          </Text>
           })}
-        </div>
+        </View>
       </Text>
     </View>
   )

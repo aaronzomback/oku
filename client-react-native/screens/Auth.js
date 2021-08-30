@@ -72,36 +72,9 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
 
 
   return (
-        <div className="form-flex" style={{flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
-          <div>
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <form onSubmit={submitHandler}>
-              <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
-              <label style={{fontSize: 16, marginBottom: 4 }}>Email</label>
-              <input placeholder="Enter email..."
-                     onChange={onChangeHandlerEmail}
-                     name="email"
-                     value={email}
-                     noValidate
-                     
-              ></input>
-              <label style={{fontSize: 16, marginBottom: 4, marginTop: 8 }}>Password</label>
-              <input placeholder="Enter password..."
-                     onChange={onChangeHandlerPassword}
-                     name="password"
-                     value={password}
-                     type="password"
-                     noValidate
-
-              ></input>
-              <button type="submit" style={{marginTop: 8, backgroundColor: '#60BADA'}}>
-                Sign in
-              </button>
-              </View>
-            </form>
+  
             </View>
-          </div>
-        </div>
   )
 }
 

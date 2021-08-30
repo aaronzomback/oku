@@ -6,8 +6,8 @@ function MyCollection () {
 
 
   return (
-    <section>
-      My Collection
-    </section>
+    <View>
+     <Text>My collection</Text>
+    </View>
   )
 }

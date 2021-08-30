@@ -7,15 +7,13 @@ function WordOfDay ({words}) {
 
   return (
     <View style={styles.baseText}>
-      <section>
-        <h1>
+        <Text>
           {words.word}
-        </h1>
-        <h3>// {words.definitions[1]["partOfSpeech"]} //</h3>
-        <i><h2>
+        </Text>
+        <Text>// {words.definitions[1]["partOfSpeech"]} //</Text>
+        <Text>
         {words.definitions[1]["text"]}
-        </h2></i>
-    </section>
+        </Text>
    </View>
   )
 }

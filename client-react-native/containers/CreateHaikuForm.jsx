@@ -110,10 +110,10 @@ function HaikuForm () {
   }
   
   return (
-    <form className="create-haiku-form" onSubmit={submitHandler}>
-      <h2 className="create-haiku-title">
+    <View>
+      <Text className="create-haiku-title">
         Create haiku:
-      </h2>
+      </Text>
       <View >
       <TextInput style={styles.input} placeholder="Enter your first line..." name='line1' value={line1} onChange={onChangeHandlerLine1} noValidate></TextInput>
       { !syllableError1 ? <Text>  { syllablesLine1 }  / 5 syllables </Text>
@@ -135,9 +135,9 @@ function HaikuForm () {
        }
       </View>
       <View style={styles.button}>
-      <button type="submit"><Text>Publish haiku</Text></button>
+      <Button type="submit"><Text>Publish haiku</Text></Button>
       </View>
-    </form>
+    </View>
   )
 }
 

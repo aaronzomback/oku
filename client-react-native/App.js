@@ -3,13 +3,14 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Modal } from 'react-native';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 import { createHttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
 import Auth from './screens/Auth';
+import FormModal from './screens/FormModal';
 import HomeScreen from './screens/HomeScreen';
 import LandingScreen from './screens/LandingScreen';
 import SignUp from './screens/SignUp'
@@ -23,8 +24,62 @@ import { fetchRequest } from './services/ApiClient';
 
 
 
+const RootStack = createStackNavigator();
+const MainStack = createStackNavigator();
 
-const Stack = createStackNavigator()
+const MainStackScreen = () => {
+
+  const [ words, setWord ] = useState([]);
+  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+
+  useEffect(() => {
+      (async () => {
+      const words = await fetchRequest()
+      setWord(words) ;
+    })()
+  }, [])
+
+
+  return (
+        <MainStack.Navigator initialRouteName="Home">
+          <MainStack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'OKU' }}
+            isAuthenticated={isAuthenticated}
+            
+          />
+          <MainStack.Screen 
+            name="SignUp"
+            component={SignUp}
+
+          />
+          <MainStack.Screen
+            name="Create"
+            component={CreateScreen}
+          />
+          <MainStack.Screen
+            name="Feed"
+            component={FeedScreen} 
+          />
+          <MainStack.Screen
+            name="Landing"
+            component={LandingScreen} 
+          />
+          <MainStack.Screen 
+            name="WordOfDay">{(props) => (<WordOfDay words={words} {...props} />)}
+            
+          </MainStack.Screen>
+          <MainStack.Screen 
+            name="MyHaikus"
+            component={MyHaikus} 
+          />
+          <MainStack.Screen name="Auth" component={Auth} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated}
+
+          />
+        </MainStack.Navigator>
+  );
+};
 
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -58,7 +113,6 @@ export default function App() {
   useEffect(() => {
       (async () => {
       const words = await fetchRequest()
-      console.log(words.definitions[1].text);
       setWord(words) ;
     })()
   }, [])
@@ -66,41 +120,14 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ title: 'OKU' }}
-            isAuthenticated={isAuthenticated}
-            
-          />
-          <Stack.Screen 
-            name="SignUp"
-            component={SignUp}>
+        <RootStack.Navigator mode="modal">
+          <RootStack.Screen
+            name="Main"
+            component={MainStackScreen}
+            options={{ headerShown: false }}
 
-          </Stack.Screen>
-          <Stack.Screen
-            name="Create"
-            component={CreateScreen}
           />
-          <Stack.Screen
-            name="Feed"
-            component={FeedScreen} 
-          />
-          <Stack.Screen
-            name="Landing"
-            component={LandingScreen} 
-          />
-          <Stack.Screen 
-            name="WordOfDay">{(props) => (<WordOfDay words={words} {...props} />)}
-          </Stack.Screen>
-          <Stack.Screen 
-            name="MyHaikus">{(props) => (<MyHaikus isAuthenticated={isAuthenticated} {...props} />)}
-          </Stack.Screen>
-          <Stack.Screen name="Auth" component={Auth} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated}>
-
-          </Stack.Screen>
-          </Stack.Navigator>
+        </RootStack.Navigator>
         <StatusBar style="light" />
       </NavigationContainer>
     </ApolloProvider>
