@@ -27,13 +27,13 @@ function FeedScreen () {
             return haiku.author ?
             <View key={haiku.id} style={{marginBottom: 8}}>
               <View>
-                <Text style={{marginBottom: 2, color: '#20994C'}}>{haiku.line1},</Text>
-                <Text style={{margin: 2, color: '#20994C'}}>{haiku.line2},</Text>
-                <Text style={{margin: 2, color: '#20994C'}}>{haiku.line3}</Text>
+                <Text style={{ color: '#20994C'}}>{haiku.line1},</Text>
+                <Text style={{ color: '#20994C'}}>{haiku.line2},</Text>
+                <Text style={{color: '#20994C'}}>{haiku.line3}</Text>
               </View>
               <View style={styles.authorText}>
-              <Text style={{margin: 0, color: '#20994C' }}>@{haiku.author.username}</Text>
-              <Text style={{marginToText: 2, borderColor: '#20994C',  color: '#20994C'}}>{moment(haiku.createdAt).fromNow()}</Text>
+              <Text style={{color: '#20994C' }}>@{haiku.author.username}</Text>
+              <Text style={{borderColor: '#20994C',  color: '#20994C'}}>{moment(haiku.createdAt).fromNow()}</Text>
               </View>
               <View
   style={{
@@ -46,13 +46,13 @@ function FeedScreen () {
             <Text key={haiku.id}>
             <Text>
               <Text>
-              <Text style={{marginBottom: 2, color: '#20994C'}}>{haiku.line1}</Text>
-              <Text style={{margin: 2, color: '#20994C'}}>{haiku.line2}</Text>
-              <Text style={{margin: 2, color: '#20994C'}}>{haiku.line3}</Text>
+              <Text style={{color: '#20994C'}}>{haiku.line1}</Text>
+              <Text style={{ color: '#20994C'}}>{haiku.line2}</Text>
+              <Text style={{color: '#20994C'}}>{haiku.line3}</Text>
               </Text>
             </Text>
             <Text style={styles.authorText}>
-            <Text style={{borderWidth: 0, border: "none", margin: 2, color: '#20994C'}}>{moment(haiku.createdAt).fromNow()}</Text>
+            <Text style={{borderWidth: 0, color: '#20994C'}}>{moment(haiku.createdAt).fromNow()}</Text>
             </Text>
           </Text>
           })}

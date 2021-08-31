@@ -4,3 +4,4 @@ nodemon.json
 env.js
 .expo
 .expo-shared
+config.js

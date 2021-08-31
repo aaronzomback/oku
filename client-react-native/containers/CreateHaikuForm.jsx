@@ -55,13 +55,14 @@ function HaikuForm () {
 
 
   const onChangeHandlerLine1 = (e) => {
-    setLine1(e.target.value);
-    setSyllablesLine1(syllable(e.target.value));
-    const setSyllLine1 = syllable(e.target.value);
+    const {text} = e.nativeEvent;
+    setLine1(text);
+    setSyllablesLine1(syllable(text));
+    const setSyllLine1 = syllable(text);
     if (setSyllLine1 > 5) {
       setSyllableErrorLine1(true);
       setSyllableValidLine1(false);
-      setSyllablesLine1(5 - syllable(e.target.value))
+      setSyllablesLine1(5 - syllable(text))
       console.log('syllable valid ?: ', syllableValid1)
     } else if (setSyllLine1 === 5) {
       setSyllableValidLine1(true)
@@ -76,12 +77,13 @@ function HaikuForm () {
   }
 
   const onChangeHandlerLine2 = (e) => {
-    setLine2(e.target.value);
-    setSyllablesLine2(syllable(e.target.value));
-    const setSyllLine2 = syllable(e.target.value);
+    const {text} = e.nativeEvent;
+    setLine2(text);
+    setSyllablesLine2(syllable(text));
+    const setSyllLine2 = syllable(text);
     if (setSyllLine2 > 7) {
       setSyllableErrorLine2(true);
-      setSyllablesLine2(7 - syllable(e.target.value))
+      setSyllablesLine2(7 - syllable(text))
     } else {
       setSyllableErrorLine2(false);
     }
@@ -89,12 +91,13 @@ function HaikuForm () {
   }
 
   const onChangeHandlerLine3 = (e) => {
-    setLine3(e.target.value);
-    setSyllablesLine3(syllable(e.target.value));
-    const setSyllLine3 = syllable(e.target.value);
+    const {text} = e.nativeEvent;
+    setLine3(text);
+    setSyllablesLine3(syllable(text));
+    const setSyllLine3 = syllable(text);
     if (setSyllLine3 > 5) {
       setSyllableErrorLine3(true);
-      setSyllablesLine3(5 - syllable(e.target.value))
+      setSyllablesLine3(5 - syllable(text))
     } else {
       setSyllableErrorLine3(false);
     }
@@ -126,23 +129,24 @@ function HaikuForm () {
       <TextInput style={styles.input} placeholder="Enter your second line..." name='line2' value={line2} onChange={onChangeHandlerLine2} noValidate></TextInput>
       { !syllableError2 ? <Text>  { syllablesLine2 }  / 7 syllables</Text>
        :
-        <Text> { syllablesLine2 } syllables</Text>
+        <Text style={ 
+          syllableError2 ? styles.invalidSyllable 
+          : !syllableError2 && syllableValid2 ? styles.validSyllable
+            : null }> { syllablesLine2 } syllables</Text>
        }
        <TextInput style={styles.input} placeholder="Enter your third line..." name='line3' value={line3} onChange={onChangeHandlerLine3} noValidate></TextInput>
        { !syllableError3 ? <Text>  { syllablesLine3 }  / 5 syllables</Text>
        :
-        <Text> { syllablesLine3 } syllables</Text>
+        <Text style={ 
+          syllableError3 ? styles.invalidSyllable 
+          : !syllableError3 && syllableValid3 ? styles.validSyllable
+            : null }> { syllablesLine3 } syllables</Text>
        }
       </View>
       <View style={styles.button}>
-      <TouchableOpacity 
-        type="submit"
-        style={{width: 200, paddingTop: 1, paddingBottom: 1}}
-      
-      >
-        <Text
-          style={{fontSize:32, color: '#F5F2EB', textAlign: "center", textTransform: "uppercase"}}
-      >Publish haiku</Text></TouchableOpacity>
+      <TouchableOpacity style={{ width: 300, marginTop: 8, color: '#F5F2EB', backgroundColor: '#20994C', borderRadius: 5, padding: 1, textAlign: "center", marginTop: 4}}>
+            <Text style={{fontSize: 21, color: '#F5F2EB' }}>Publish haiku</Text>
+      </TouchableOpacity>
       </View>
     </View>
   )
