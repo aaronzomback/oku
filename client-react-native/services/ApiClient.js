@@ -1,6 +1,6 @@
-import {BASE_URL, REACT_WORD_API_KEY} from  "@env"
+import {REACT_APP_BASE_URL, REACT_APP_WORD_API_KEY} from '../env';
 
-const apiUrl = BASE_URL + REACT_WORD_API_KEY;
+const apiUrl = REACT_APP_BASE_URL + REACT_APP_WORD_API_KEY;
 
 export const fetchRequest = async () => {
   try {

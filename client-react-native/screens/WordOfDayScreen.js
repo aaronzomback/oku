@@ -4,8 +4,6 @@ import { View, StyleSheet, Text } from 'react-native'
 
 function WordOfDay ({words}) {
 
-  console.log('words', words)
-  console.log('word: ', words.word)
 
   return (
     <View style={styles.baseText}>
