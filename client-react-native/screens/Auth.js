@@ -22,18 +22,6 @@ function Auth ({isAuthenticated, setIsAuthenticated, navigation}) {
 
   if (loading) return <p>Loading ...</p>;
 
-  // if (data) {
-  //   if (data.length) {
-  //     console.log('data call: ', data);
-  //     setIsAuthenticated(true);
-  //     console.log('is auth?: ', isAuthenticated)
-  //     navigation.navigate('Landing');
-  //   }
-  //   else {
-  //     setIsAuthenticated(false);
-  //     setError(true);
-  //   }
-  // }
   const submitHandler = async (e) => {
     e.preventDefault();
     if (email == '' || password == '') {

@@ -20,20 +20,8 @@ function FormModal ({isAuthenticated, setIsAuthenticated, navigation}) {
   const [ getUser, { data, loading, called } ] = useLazyQuery(FETCH_USER_QUERY);
   data ? console.log('is it this?: ', data) : null;
 
-  if (loading) return <p>Loading ...</p>;
+  if (loading) return <Text>Loading...</Text>;
 
-  // if (data) {
-  //   if (data.length) {
-  //     console.log('data call: ', data);
-  //     setIsAuthenticated(true);
-  //     console.log('is auth?: ', isAuthenticated)
-  //     navigation.navigate('Landing');
-  //   }
-  //   else {
-  //     setIsAuthenticated(false);
-  //     setError(true);
-  //   }
-  // }
   const submitHandler = async (e) => {
     e.preventDefault();
     if (email == '' || password == '') {
@@ -71,30 +59,30 @@ function FormModal ({isAuthenticated, setIsAuthenticated, navigation}) {
   }
 
   return (
-       <View style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '4em' }}>
+       <View style={{marginLeft: 'auto', marginRight: 'auto', marginTop: 5 }}>
           <View>
-            <Text style={{color: '#20994C', fontSize: '8rem', textAlign: 'center' }}>OKU</Text>
-          <Text style={{fontSize: 16, marginBottom: 4, color: '#20994C' }}>Email</Text>
+            <Text style={{marginBottom: 32, color: '#20994C', fontSize: 56, textAlign: 'center', letterSpacing: 24 }}>OKU</Text>
+          <Text style={{fontSize: 16, marginBottom: 12, color: '#20994C' }}>Email</Text>
           <TextInput placeholder="Enter email..."
                  onChange={onChangeHandlerEmail}
                  name="email"
                  value={email}
                  noValidate
-                 style={{outlineStyle: 'none', borderColor: '#20994C', borderWidth: 2.2, padding: '0.6em' }}
+                 style={{marginBottom: 16, borderColor: '#20994C', borderWidth: 2.2, padding: 3 }}
                  
           ></TextInput>
-          <Text style={{fontSize: 16, marginBottom: 4, marginTop: 8, color: '#20994C' }}>Password</Text>
+          <Text style={{fontSize: 16, marginBottom: 12, marginTop: 8, color: '#20994C' }}>Password</Text>
           <TextInput placeholder="Enter password..."
                  onChange={onChangeHandlerPassword}
                  name="password"
                  value={password}
                  secureTextEntry={true}
                  noValidate
-                 style={{outlineStyle: 'none', borderColor: '#20994C', borderWidth: 2.2, padding: '0.6em' }}
+                 style={{borderColor: '#20994C', borderWidth: 2.2, padding: 3 }}
 
           ></TextInput>
-          <TouchableOpacity onPress={submitHandler} style={{ width: '20em', marginTop: 8, color: '#F5F2EB', backgroundColor: '#20994C', borderRadius: '4em', padding: "0.6em", textAlign: "center", marginTop: '2em'}}>
-            <Text style={{fontSize: "16px", color: '#F5F2EB' }}>Sign in</Text>
+          <TouchableOpacity onPress={submitHandler} style={{ width: 300, marginTop: 8, color: '#F5F2EB', backgroundColor: '#20994C', borderRadius: 5, padding: 1, textAlign: "center", marginTop: 4}}>
+            <Text style={{fontSize: 21, color: '#F5F2EB' }}>Sign in</Text>
           </TouchableOpacity>
           </View>
       </View>

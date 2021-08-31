@@ -10,25 +10,25 @@ import { View, Text, StyleSheet, TextInput, Keyboard, TouchableOpacity } from 'r
 
 function HaikuForm () {
 
-  // initialize initial empty form inputs
+  {/* initialize initial empty form inputs */}
   const [line1, setLine1] = useState('');
   const [line2, setLine2] = useState('');
   const [line3, setLine3] = useState('');
 
-  // track syllable count
+  {/* track syllable count */}
   const [syllablesLine1, setSyllablesLine1] = useState(0);
   const [syllablesLine2, setSyllablesLine2] = useState(0);
   const [syllablesLine3, setSyllablesLine3] = useState(0);
 
-  // track form error as a whole
+  {/* track form error as a whole */}
   const [error, setError] = useState(false);
 
-  // track INVALID syllable conditions for each line
+  {/* track INVALID syllable conditions for each line */}
   const [syllableError1, setSyllableErrorLine1] = useState(false);
   const [syllableError2, setSyllableErrorLine2] = useState(false);
   const [syllableError3, setSyllableErrorLine3] = useState(false);
 
-    // track the VALID syllable condition for each line
+    {/* track the VALID syllable condition for each line */}
     const [syllableValid1, setSyllableValidLine1] = useState(false);
     const [syllableValid2, setSyllableValidLine2] = useState(false);
     const [syllableValid3, setSyllableValidLine3] = useState(false);
@@ -110,7 +110,7 @@ function HaikuForm () {
   }
   
   return (
-    <View>
+    <View style={{marginTop: 10, width: 200 }}>
       <Text className="create-haiku-title">
         Create haiku:
       </Text>
@@ -135,7 +135,14 @@ function HaikuForm () {
        }
       </View>
       <View style={styles.button}>
-      <Button type="submit"><Text>Publish haiku</Text></Button>
+      <TouchableOpacity 
+        type="submit"
+        style={{width: 200, paddingTop: 1, paddingBottom: 1}}
+      
+      >
+        <Text
+          style={{fontSize:32, color: '#F5F2EB', textAlign: "center", textTransform: "uppercase"}}
+      >Publish haiku</Text></TouchableOpacity>
       </View>
     </View>
   )
@@ -146,7 +153,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: 'SFProDisplay-Regular',
     fontSize: 24,
-    color: '#60BADA',
+    color: '#20994C',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -161,12 +168,11 @@ const styles = StyleSheet.create({
     width: 400,
     borderBottomWidth: 2,
     padding: 10,
-    borderColor: '#60BADA',
+    borderColor: '#20994C',
     alignItems: 'center'
-    // width: '50%'
   },
   button: {
-    marginTop: 88,
+    marginTop: 24,
     flex: 1, 
     textAlign: 'center', 
     width: 400, 
@@ -174,7 +180,7 @@ const styles = StyleSheet.create({
     padding: '24', 
     alignItems: 'center', 
     color: '#F2F4F7', 
-    backgroundColor: '#60BADA',
+    backgroundColor: '#20994C',
     padding: 10
   },
   invalidSyllable: {

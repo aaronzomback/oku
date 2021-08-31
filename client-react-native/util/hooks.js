@@ -11,15 +11,15 @@ export const useForm = (callback, {}) => {
     
     switch (name) {
       case 'line1':
-        // write validation logic here
+        {/* write validation logic here */}
         setValues({ ...values, line1: value });                 
         break;
       case 'line2':
-        // write validation logic here               
+        {/* write validation logic here */}              
   setValues({ ...values, line2: value });
         break;
       case 'line3':
-        // write validation logic here
+        {/* write validation logic here */}
         setValues({ ...values, line3: value });       
         break;
       default:

@@ -15,8 +15,8 @@ function FeedScreen () {
 
   const { data, loading, error } = useQuery(FETCH_HAIKUS_QUERY);
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  if (loading) return <Text>Loading...</Text>
+  if (error) return <Text>Error! {error.message}</Text>;
   if (data) console.log(data);
 
   return (

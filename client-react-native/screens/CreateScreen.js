@@ -6,7 +6,7 @@ import { syllable } from 'syllable'
 function CreateScreen () {
 
   return (
-    <View className='create-haiku'>
+    <View style={{backgroundColor: '#F5F2EB', height: 500}}>
       <HaikuForm>
 
       </HaikuForm>

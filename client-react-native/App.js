@@ -91,14 +91,14 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   }
 });
 
-// our GraphQL API endpoint
+{/* our GraphQL API endpoint */}
 const httpLink = createHttpLink({
   uri: 'http://localhost:4001/graphql'
 });
 
 const link = ApolloLink.from([errorLink, httpLink]);
 
-// Pass our GraphQL endpoint & error links to ApolloClient API
+{/* Pass our GraphQL endpoint & error links to ApolloClient API */}
 const client = new ApolloClient({ 
   link,
   cache: new InMemoryCache() 

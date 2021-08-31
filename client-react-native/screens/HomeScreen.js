@@ -19,14 +19,11 @@ function HomeScreen({navigation}) {
     "SFProDisplay-Regular": require("../assets/fonts/SFProDisplay-Regular.otf"),
   });
 
-  const { data, loading, error } = useQuery(FETCH_HAIKUS_QUERY);
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
-  if (data) console.log(data);
+
 
   return (
-    <View style={{backgroundColor: '#F5F2EB', height: '100vh'}}>
+    <View style={{backgroundColor: '#F5F2EB', height: 500}}>
      <FormModal navigation={navigation} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}></FormModal>
   </View>
     )

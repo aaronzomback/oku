@@ -1,19 +1,25 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 
 
 function WordOfDay ({words}) {
 
+  console.log('words', words)
+  console.log('word: ', words.word)
 
   return (
     <View style={styles.baseText}>
-        <Text>
+        <Text style={{fontSize: 40, color: '#20994C' }}>
           {words.word}
         </Text>
-        <Text>// {words.definitions[1]["partOfSpeech"]} //</Text>
-        <Text>
-        {words.definitions[1]["text"]}
-        </Text>
+        <Text style={{color: '#20994C'}}>//</Text>
+      <Text style={{color: '#20994C'}}>
+        {words["definitions"][0]["partOfSpeech"]}
+      </Text>
+      <Text style={{color: '#20994C'}}>//</Text>
+      <Text style={{color: '#20994C'}}>
+      {words["definitions"][0]["text"]}
+      </Text>
    </View>
   )
 }
@@ -26,7 +32,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'SFProDisplay-Regular',
     fontSize: 24,
-    color: '#60BADA'
+    backgroundColor: '#F5F2EB',
+    color: '#20994C'
   }
 });
 

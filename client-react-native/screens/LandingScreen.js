@@ -1,6 +1,7 @@
 import React from 'react';
+import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 
-import { View, Button } from 'react-native';
+import { View, Button, Text } from 'react-native';
 
 
 
@@ -10,41 +11,52 @@ function LandingScreen ({navigation}) {
 
 
   return (
-    <View>
-    <Button
-    title="Create a haiku"
+    <View style={{backgroundColor: '#F5F2EB', height: 500}}>
+      <View style={{fontSize: 24, flex: 1, justifyContent: "center", marginLeft: "auto", marginRight: "auto", width: 400}}>
+    <TouchableOpacity
     onPress={() => navigation.navigate('Create')}
-    style={{backgroundColor: '#20994C'}}
-  />
-  <Button
-    title="Feed"
+    style={{marginBottom: 6, width: 200, paddingTop: 1, paddingBottom: 1}}
+      >
+      <Text style={{fontSize:32, color: '#20994C', textAlign: "center", textTransform: "uppercase"}}>Create a haiku</Text>
+      </TouchableOpacity>
+  <TouchableOpacity
     onPress={() => navigation.navigate('Feed')}
-    style={{backgroundColor: '#20994C'}}
-  />
-  <Button
-    title="Word of Day"
+    style={{marginBottom: 6, width: 200, paddingTop: 1, paddingBottom: 1}}
+  >
+    <Text style={{fontSize:32, color: '#20994C', textAlign: "center", textTransform: "uppercase"}}>Feed</Text>
+    </TouchableOpacity>
+  <TouchableOpacity
     onPress={() => navigation.navigate('WordOfDay')}
-  />
-    <Button
-    title="My Collection"
+    style={{marginBottom: 6, width: 200, paddingTop: 1, paddingBottom: 1}}
+  >
+    <Text style={{fontSize:32, color: '#20994C', textAlign: "center", textTransform: "uppercase"}}>Word of Day</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
     onPress={() => navigation.navigate('MyCollection')}
-    style={{backgroundColor: '#20994C'}}
-  />
-  <Button
-    title="My Haikus"
+    style={{marginBottom: 6, width: 200, paddingTop: 1, paddingBottom: 1}}
+
+  >
+     <Text style={{fontSize:32, color: '#20994C', textAlign: "center", textTransform: "uppercase"}}>My Collection</Text>
+    </TouchableOpacity>
+  <TouchableOpacity
     onPress={() => navigation.navigate('MyHaikus')}
-    style={{backgroundColor: '#20994C'}}
-  />
-    <Button
-    title="Profile"
+    style={{marginBottom: 6, width: 200, paddingTop: 1, paddingBottom: 1}}
+  >
+      <Text style={{fontSize:32, color: '#20994C', textAlign: "center", textTransform: "uppercase"}}>My Haikus</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
     onPress={() => navigation.navigate('Profile')}
-    style={{backgroundColor: '#20994C'}}
-  />
-  <Button
-    title="Gallery"
+    style={{marginBottom: 6, width: 200, paddingTop: 1, paddingBottom: 1}}
+  >
+    <Text style={{fontSize:32, color: '#20994C', textAlign: "center", textTransform: "uppercase"}}>Profile</Text>
+    </TouchableOpacity>
+  <TouchableOpacity
     onPress={() => navigation.navigate('Gallery')}
-    style={{backgroundColor: '#20994C'}}
-  />
+    style={{marginBottom: 6, width: 200, paddingTop: 1, paddingBottom: 1}}
+  >
+    <Text style={{fontSize:32, color: '#20994C', textAlign: "center", textTransform: "uppercase"}}>Gallery</Text>
+  </TouchableOpacity>
+        </View>
 </View>
 
   )
