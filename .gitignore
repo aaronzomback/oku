@@ -2,3 +2,6 @@ node_modules
 config.js
 .env
 nodemon.json
+env.js
+.expo
+.expo-shared
