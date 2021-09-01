@@ -15,18 +15,17 @@ Users can submit haikus from their collection to our platform sponsored artist/i
 
 ## Getting started
 
-Except for the regular suspects - git, Node, npm, etc - you need these things to run the Foodprint app. Follow the instructions supplied below them or on their links before you continue with *Installation*.
-* Mapbox. Get API key [here](https://www.mapbox.com/)
-* Google Places API. Get API key [here](https://cloud.google.com/maps-platform/places)
-* PostgreSQL local database, including the psql CLI. Download and install from [here](https://www.postgresql.org/) 
+Except for the regular suspects - git, Node, npm, etc - you need these things to run the Oku app. Follow the instructions supplied below them or on their links before you continue with *Installation*.
+* Wordnik. Get API key [here](https://www.wordnik.com/)
+* Neo4j local database, including the Neo4j Desktop App. Download and install from [here](https://www.neo4j.org/) 
 
 
 ## Installation
 1. Clone this repo and enter!
 
    ```bash
-   git clone https://github.com/frankperler/foodprint.git
-   cd foodprint
+   git clone https://github.com/aaronzomback/oku.git
+   cd oku
    ```
 
 2. Install dependencies, by running ````npm install```` both in the client and the server folder
@@ -34,7 +33,7 @@ Except for the regular suspects - git, Node, npm, etc - you need these things to
 3. Add API keys as listed in the .env.example file.
 
 4. Start the server by running ````nodemon```` in the server folder.
-5. Create a database called "foodprint_dev" with PostgreSQL.
+5. Create a database called "oku" with Neo4j Desktop.
 
 5. For a better experience, you might want to populate your DB with mock data. To do so follow these steps:
       * In the server folder, find the "mock_data" folder
