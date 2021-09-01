@@ -1,4 +1,4 @@
-![Group 962](https://user-images.githubusercontent.com/63470294/131759374-4d4768b9-bdb3-4005-be8e-dbfc881e94a0.png)
+![Group 965](https://user-images.githubusercontent.com/63470294/131759654-ce9ca4ed-25e1-403d-a679-78526a74bbf8.png)
 
 
 # A Haiku creating and sharing social app
