@@ -44,4 +44,4 @@ Except for the regular suspects - git, Node, npm, etc - you need these things to
 5. In the client folder, run ````npm start```` to start the development server.
  
  ## Tech Stack
- [React-Native](https://reactjs.org/), [GraphQL](https://www.typescriptlang.org/), [Styled Components](https://styled-components.com/), [Neo4j](https://www.postgresql.org/), [Sequelize](https://sequelize.org/), [Express](https://expressjs.com/).
+ [React-Native](https://reactjs.org/), [GraphQL](https://www.typescriptlang.org/), [Apollo](https://styled-components.com/), [Neo4j](https://www.postgresql.org/), [NodeJS](https://expressjs.com/).
