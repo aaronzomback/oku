@@ -15,13 +15,13 @@ Users can submit haikus from their collection to our platform sponsored artist/i
 
 ## Getting started
 
-Except for the regular suspects - git, Node, npm, etc - you need these things to run the Oku app. Follow the instructions supplied below them or on their links before you continue with *Installation*.
+You need these things to run the Oku app. Follow the instructions supplied below or on their links before you continue with *Installation*.
 * Wordnik. Get API key [here](https://www.wordnik.com/)
 * Neo4j local database, including the Neo4j Desktop App. Download and install from [here](https://www.neo4j.org/) 
 
 
 ## Installation
-1. Clone this repo and enter!
+1. Clone this repo and enter
 
    ```bash
    git clone https://github.com/aaronzomback/oku.git
