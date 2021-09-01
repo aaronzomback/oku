@@ -113,13 +113,11 @@ function HaikuForm () {
   }
   
   return (
-    <View style={{marginTop: 10, width: 200 }}>
-      <Text className="create-haiku-title">
-        Create haiku:
-      </Text>
+    <View style={{marginTop: 100}}>
+
       <View >
       <TextInput style={styles.input} placeholder="Enter your first line..." name='line1' value={line1} onChange={onChangeHandlerLine1} noValidate></TextInput>
-      { !syllableError1 ? <Text>  { syllablesLine1 }  / 5 syllables </Text>
+      { !syllableError1 ? <View><Text style={{marginLeft: 300}}>  { syllablesLine1 }  / 5 syllables </Text></View>
        :
         <Text style={ 
           syllableError1 ? styles.invalidSyllable 
@@ -127,7 +125,7 @@ function HaikuForm () {
             : null }> { syllablesLine1 } syllables</Text>
        }
       <TextInput style={styles.input} placeholder="Enter your second line..." name='line2' value={line2} onChange={onChangeHandlerLine2} noValidate></TextInput>
-      { !syllableError2 ? <Text>  { syllablesLine2 }  / 7 syllables</Text>
+      { !syllableError2 ? <Text style={{marginLeft: 300}}>  { syllablesLine2 }  / 7 syllables</Text>
        :
         <Text style={ 
           syllableError2 ? styles.invalidSyllable 
@@ -135,7 +133,7 @@ function HaikuForm () {
             : null }> { syllablesLine2 } syllables</Text>
        }
        <TextInput style={styles.input} placeholder="Enter your third line..." name='line3' value={line3} onChange={onChangeHandlerLine3} noValidate></TextInput>
-       { !syllableError3 ? <Text>  { syllablesLine3 }  / 5 syllables</Text>
+       { !syllableError3 ? <Text style={{marginLeft: 300}}>  { syllablesLine3 }  / 5 syllables</Text>
        :
         <Text style={ 
           syllableError3 ? styles.invalidSyllable 
@@ -143,9 +141,9 @@ function HaikuForm () {
             : null }> { syllablesLine3 } syllables</Text>
        }
       </View>
-      <View style={styles.button}>
-      <TouchableOpacity style={{ width: 300, marginTop: 8, color: '#F5F2EB', backgroundColor: '#20994C', borderRadius: 5, padding: 1, textAlign: "center", marginTop: 4}}>
-            <Text style={{fontSize: 21, color: '#F5F2EB' }}>Publish haiku</Text>
+      <View style={{marginLeft: 'auto', marginRight: 'auto', marginTop: 40}}>
+      <TouchableOpacity onPress={submitHandler} style={{width: 400, marginTop: 16, color: '#F5F2EB', backgroundColor: '#20994C',  padding: 12, marginTop: 4}}>
+            <Text style={{fontSize: 21, color: '#F5F2EB', textAlign: 'center' }}>Publish haiku</Text>
       </TouchableOpacity>
       </View>
     </View>
@@ -188,7 +186,8 @@ const styles = StyleSheet.create({
     padding: 10
   },
   invalidSyllable: {
-    color: `#dc143c`
+    color: `#dc143c`,
+    marginLeft: 300
   },
   validSyllable: {
     color: `#32cd32`,

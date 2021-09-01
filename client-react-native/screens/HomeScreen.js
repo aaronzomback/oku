@@ -8,7 +8,7 @@ import { useState } from 'react';
 import LogInForm from '../containers/LogInForm';
 
 import Auth from './Auth';
-import FormModal from './FormModal';
+import FormModal from '../containers/FormModal';
 
 function HomeScreen({navigation}) {
 

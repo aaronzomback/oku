@@ -10,7 +10,7 @@ import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
 import Auth from './screens/Auth';
-import FormModal from './screens/FormModal';
+import FormModal from './containers/FormModal';
 import HomeScreen from './screens/HomeScreen';
 import LandingScreen from './screens/LandingScreen';
 import SignUp from './screens/SignUp'
