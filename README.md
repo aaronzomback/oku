@@ -1,4 +1,5 @@
-## OKU
+![Group 962](https://user-images.githubusercontent.com/63470294/131759374-4d4768b9-bdb3-4005-be8e-dbfc881e94a0.png)
+
 
 # A Haiku creating and sharing social app
 Provoking creativity and connecting creators. Users create haikus according to the 5/7/5 syllable count and publish for the world to see.
