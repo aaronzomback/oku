@@ -2,6 +2,7 @@
 ## K
 ## U
 
+![Uploading iPhone 12 Pro Max.png…]()
 
 # A Haiku creating and sharing social app
 Provoking creativity and connecting creators. Users create haikus according to the 5/7/5 syllable count and publish for the world to see.
