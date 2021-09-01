@@ -1,6 +1,4 @@
-## O
-## K
-## U
+## OKU
 
 ![iPhone 12 Pro Max (1)](https://user-images.githubusercontent.com/63470294/131758209-890b6c73-59c8-49bd-8d63-9bc57896c858.png)
 
