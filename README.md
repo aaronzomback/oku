@@ -10,7 +10,7 @@ Users can collect haikus from other users to add to their collection. The limit 
 # Connecting Illustrators with Authors
 Users can submit haikus from their collection to our platform sponsored artist/illustrators for review. If accepted, the illustrator will create a rendering of their own visual interpretation of the haiku and featured in the app-wide gallery for viewing.
 
-![Uploading iPhone 12 Pro Max (3).png…]()
+![iPhone 12 Pro Max](https://user-images.githubusercontent.com/63470294/131813060-84396bb1-f3d7-4a3a-aa3c-e63e84abc2c4.png)
 
 ## Getting started
 
