@@ -1,7 +1,7 @@
 ![Group 965](https://user-images.githubusercontent.com/63470294/131759654-ce9ca4ed-25e1-403d-a679-78526a74bbf8.png)
 
 
-# A Haiku creating and sharing social app
+# A minimialist haiku creating and sharing social app
 Provoking creativity and connecting creators. Users create haikus according to the 5/7/5 syllable count and publish for the world to see.
 
 # Collect Haikus
