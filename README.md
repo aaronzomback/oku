@@ -43,4 +43,4 @@ You need these things to run the Oku app. Follow the instructions supplied below
 5. In the client folder, run ````npm start```` to start the development server.
  
  ## Tech Stack
- [React-Native](https://reactnative.dev/), [GraphQL](https://www.typescriptlang.org/), [Apollo](https://www.apollographql.com/), [Neo4j](https://neo4j.com/), [NodeJS](https://nodejs.org/en/).
+ [React-Native](https://reactnative.dev/), [GraphQL](https://graphql.org/), [Apollo](https://www.apollographql.com/), [Neo4j](https://neo4j.com/), [NodeJS](https://nodejs.org/en/).
