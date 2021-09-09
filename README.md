@@ -16,7 +16,7 @@ Users can submit haikus from their collection to our platform sponsored artist/i
 
 You need these things to run the Oku app. Follow the instructions supplied below or on their links before you continue with *Installation*.
 * Wordnik. Get API key [here](https://www.wordnik.com/)
-* Neo4j local database, including the Neo4j Desktop App. Download and install from [here](https://www.neo4j.org/) 
+* Neo4j local database, including the Neo4j Desktop App. Download and install from [here](https://neo4j.com/download/) 
 
 
 ## Installation
